@@ -39,14 +39,14 @@ export const AcmeLogo = () => {
 export const Navbar = () => {
   const t = useTranslations("Header");
   return (
-    <HeroUINavbar isBordered maxWidth="full">
+    <HeroUINavbar isBordered maxWidth="2xl">
       <NavbarContent justify="start">
         <Link href='/'>
           <Image
             alt="Logo"
             src={"/images/transparent_logo_words_black.png"}
-            width={360}
-            height={80}
+            width={300}
+            height={60}
           />
         </Link>
         
