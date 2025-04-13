@@ -4,7 +4,7 @@ import {Image} from "@heroui/image";
 import { Link } from "@heroui/link";
 import { GoogleMapsEmbed } from '@next/third-parties/google';
 
-export default function Footer({ locale }: { locale: string }) {
+export default function Footer() {
     return (
         <div className='pt-10 pb-10'>
             <footer className='w-full flex flex-col items-center justify-center py-3'>
@@ -28,16 +28,16 @@ export default function Footer({ locale }: { locale: string }) {
                             </div>
                             <div className='w-full flex flex-col justify-center content-center place-items-start space-y-2'>
                                 <h5 className='footer-title text-base-content'> Resources </h5>
-                                <Link href={`/${locale}/sermons`}>
+                                <Link href={`/sermons`}>
                                     <p className='text-base-content hover:text-info'>Sermons</p>
                                 </Link>
-                                <Link href={`/${locale}/events`}>
+                                <Link href={`/events`}>
                                     <p className='text-base-content hover:text-info'>Events</p>
                                 </Link>
-                                <Link href={`/${locale}/classes`}>
+                                <Link href={`/classes`}>
                                     <p className='text-base-content hover:text-info'>Classes</p>
                                 </Link>
-                                <Link href={`/${locale}/ministries`}>
+                                <Link href={`/ministries`}>
                                     <p className='text-base-content hover:text-info'>Ministries</p>
                                 </Link>
                             </div>

@@ -20,6 +20,7 @@ import { useTranslations } from "next-intl";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
+import LanguageSwitcher from "@/components/languageSwitcher";
 
 import {
   TwitterIcon,
@@ -44,13 +45,16 @@ export const AcmeLogo = () => {
 export const Navbar = () => {
   const t = useTranslations("Header");
   return (
-    <HeroUINavbar isBordered>
+    <HeroUINavbar isBordered maxWidth="full">
+      <NavbarContent justify="start">
         <Image
           alt="Logo"
           src={"/images/transparent_logo_words_black.png"}
           width={360}
           height={80}
         />
+      </NavbarContent>
+        
       
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
@@ -85,11 +89,7 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+        <LanguageSwitcher />
       </NavbarContent>
     </HeroUINavbar>
   );
