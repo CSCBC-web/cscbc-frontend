@@ -40,6 +40,13 @@
         "resources_menu_text_right_now_media": "Right Now Media",
         "resources_menu_text_4_year_bible_reading_plan": "4 Year Bible Reading Plan",
         "resources_menu_text_reimbursement": "Reimbursement"
-    
+    },
+    "Footer": {
+        "contact": "Contacts",
+        "resources": "Resources",
+        "footer_sermons": "Sermons",
+        "footer_events": "Events",
+        "footer_ministries": "Ministries",
+        "footer_classes": "Classes"
     }
 }

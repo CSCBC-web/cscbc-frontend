@@ -41,5 +41,13 @@
         "resources_menu_text_4_year_bible_reading_plan": "四年读经计划",
         "resources_menu_text_reimbursement": "报销"
     
+    },
+    "Footer": {
+        "contact": "联系方式",
+        "resources": "资源",
+        "footer_sermons": "讲道",
+        "footer_events": "活动",
+        "footer_ministries": "组织",
+        "footer_classes": "课程"
     }
 }

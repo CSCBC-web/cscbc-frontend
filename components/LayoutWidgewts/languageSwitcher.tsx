@@ -12,7 +12,7 @@ import {
     DropdownSection,
     DropdownItem
 } from "@heroui/dropdown";
-import { LanguageIcon } from "./icons";
+import { LanguageIcon } from "../icons";
 
 export default function LanguageSwitcher() {
     const router = useRouter();
@@ -70,7 +70,10 @@ export default function LanguageSwitcher() {
                         color={item.key === "delete" ? "danger" : "default"}
                         onClick={() => handleLanguageChange(item.key)}
                     >
-                        {item.label}
+                        <span className="hidden sm:inline">
+                            {item.key === currentLocale ? "✓" : ""}
+                            {item.label}
+                        </span>
                     </DropdownItem>
                     )}
                 </DropdownMenu>

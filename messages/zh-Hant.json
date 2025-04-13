@@ -1,6 +1,6 @@
 {
     "HomePage": {
-        "pastor_hiring_button_text": "中文牧师(繁体)",
+        "pastor_hiring_button_text": "中文牧師",
     
         "top_hero_title": "大學城華人聖經教會",
         "top_hero_description": "大學城華人聖經教會的目標是要傳福音給來自世界各地的華人華裔家庭以及學生們，帶領他們信主跟隨主。",
@@ -17,29 +17,37 @@
         "recentSermonDescription": "檢視或聆聽我們最新的講道和分享。"
     },
     "Header": {
-        "navbar_text_about": "介绍",
-        "navbar_text_events": "活动",
-        "navbar_text_sermons": "讲道",
-        "navbar_text_ministries": "组织",
-        "navbar_text_giving": "奉献",
-        "navbar_text_resources": "资料",
+        "navbar_text_about": "介紹",
+        "navbar_text_events": "活動",
+        "navbar_text_sermons": "講道",
+        "navbar_text_ministries": "組織",
+        "navbar_text_giving": "奉獻",
+        "navbar_text_resources": "資料",
     
-        "about_menu_text_about_us": "关于我们",
-        "about_menu_text_new_to_cscbc": "新来宾",
-        "about_menu_text_contact": "联系我们",
+        "about_menu_text_about_us": "關於我們",
+        "about_menu_text_new_to_cscbc": "新來賓",
+        "about_menu_text_contact": "聯繫我們",
     
-        "ministries_menu_text_family": "家庭组",
+        "ministries_menu_text_family": "家庭組",
         "ministries_menu_text_children_n_youth": "青少年",
-        "ministries_menu_text_sisterhood": "姐妹会",
-        "ministries_menu_text_young_professionals": "青年学者",
-        "ministries_menu_text_students": "学生团契",
+        "ministries_menu_text_sisterhood": "姐妹會",
+        "ministries_menu_text_young_professionals": "青年學者",
+        "ministries_menu_text_students": "學生團契",
     
-        "resources_menu_text_english_classes": "英文课",
-        "resources_menu_text_bible_reading": "2024 读经",
-        "resources_menu_text_sunday_school": "主日课程",
-        "resources_menu_text_right_now_media": "Right Now 资料",
-        "resources_menu_text_4_year_bible_reading_plan": "四年读经计划",
-        "resources_menu_text_reimbursement": "报销"
+        "resources_menu_text_english_classes": "英文課",
+        "resources_menu_text_bible_reading": "2024 讀經",
+        "resources_menu_text_sunday_school": "主日課程",
+        "resources_menu_text_right_now_media": "Right Now 資料",
+        "resources_menu_text_4_year_bible_reading_plan": "四年讀經計劃",
+        "resources_menu_text_reimbursement": "報銷"
     
+    },
+    "Footer": {
+        "contact": "聯繫方式",
+        "resources": "資源",
+        "footer_sermons": "講道",
+        "footer_events": "活動",
+        "footer_ministries": "組織",
+        "footer_classes": "課程"
     }
 }

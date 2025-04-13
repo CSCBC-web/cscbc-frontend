@@ -4,7 +4,10 @@ import {Image} from "@heroui/image";
 import { Link } from "@heroui/link";
 import { GoogleMapsEmbed } from '@next/third-parties/google';
 
+import { useTranslations } from 'next-intl';
+
 export default function Footer() {
+    const t = useTranslations("Footer");
     return (
         <div className='pt-10 pb-10'>
             <footer className='w-full flex flex-col items-center justify-center py-3'>
@@ -20,25 +23,25 @@ export default function Footer() {
                         </div>
                         <div className='w-full flex items-centr justify-center space-x-4'>
                             <div className='w-full flex flex-col justify-center content-center place-items-start space-y-2'>
-                                <h5 className='footer-title text-base-content'> Contacts </h5>
+                                <h5 className='footer-title text-base-content'> {t('contact')} </h5>
                                 <p className='text-base-content'>708 Eisenhower Street</p>
                                 <p className='text-base-content'>College Station, TX 77840</p>
                                 <a className='text-base-content' href='tel:9796962317'>979-696-2317</a>
                                 <a className='text-base-content' href='mailto:cscbclist@gmail.com'>cscbclist@gmail.com</a>
                             </div>
                             <div className='w-full flex flex-col justify-center content-center place-items-start space-y-2'>
-                                <h5 className='footer-title text-base-content'> Resources </h5>
+                                <h5 className='footer-title text-base-content'> {t('resources')} </h5>
                                 <Link href={`/sermons`}>
-                                    <p className='text-base-content hover:text-info'>Sermons</p>
+                                    <p className='text-base-content hover:text-info'>{t('footer_sermons')}</p>
                                 </Link>
                                 <Link href={`/events`}>
-                                    <p className='text-base-content hover:text-info'>Events</p>
+                                    <p className='text-base-content hover:text-info'>{t('footer_events')}</p>
                                 </Link>
                                 <Link href={`/classes`}>
-                                    <p className='text-base-content hover:text-info'>Classes</p>
+                                    <p className='text-base-content hover:text-info'>{t('footer_classes')}</p>
                                 </Link>
                                 <Link href={`/ministries`}>
-                                    <p className='text-base-content hover:text-info'>Ministries</p>
+                                    <p className='text-base-content hover:text-info'>{t('footer_ministries')}</p>
                                 </Link>
                             </div>
                             

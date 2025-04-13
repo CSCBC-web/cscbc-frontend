@@ -7,11 +7,11 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
+import { Navbar } from "@/components/LayoutWidgewts/navbar";
 
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
-import Footer from "@/components/footer";
+import Footer from "@/components/LayoutWidgewts/footer";
 
 export const metadata: Metadata = {
   title: {
