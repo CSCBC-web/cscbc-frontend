@@ -1,0 +1,45 @@
+{
+    "HomePage": {
+        "pastor_hiring_button_text": "中文牧师(繁体)",
+    
+        "top_hero_title": "大學城華人聖經教會",
+        "top_hero_description": "大學城華人聖經教會的目標是要傳福音給來自世界各地的華人華裔家庭以及學生們，帶領他們信主跟隨主。",
+        "top_hero_button_new_guest": "新來賓",
+        "top_hero_button_events": "最近事項",
+    
+        "page": "頁",
+        "page_up": "上一頁",
+        "page_down": "下一頁",
+    
+        "featuredEventsTitle": "特色活動",
+        "featuredEventsDescription": "探索我們社區即將舉行的特色活動。",
+        "recentSermonTitle": "最近講道",
+        "recentSermonDescription": "檢視或聆聽我們最新的講道和分享。"
+    },
+    "Header": {
+        "navbar_text_about": "介绍",
+        "navbar_text_events": "活动",
+        "navbar_text_sermons": "讲道",
+        "navbar_text_ministries": "组织",
+        "navbar_text_giving": "奉献",
+        "navbar_text_resources": "资料",
+    
+        "about_menu_text_about_us": "关于我们",
+        "about_menu_text_new_to_cscbc": "新来宾",
+        "about_menu_text_contact": "联系我们",
+    
+        "ministries_menu_text_family": "家庭组",
+        "ministries_menu_text_children_n_youth": "青少年",
+        "ministries_menu_text_sisterhood": "姐妹会",
+        "ministries_menu_text_young_professionals": "青年学者",
+        "ministries_menu_text_students": "学生团契",
+    
+        "resources_menu_text_english_classes": "英文课",
+        "resources_menu_text_bible_reading": "2024 读经",
+        "resources_menu_text_sunday_school": "主日课程",
+        "resources_menu_text_right_now_media": "Right Now 资料",
+        "resources_menu_text_4_year_bible_reading_plan": "四年读经计划",
+        "resources_menu_text_reimbursement": "报销"
+    
+    }
+}

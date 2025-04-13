@@ -1,0 +1,45 @@
+{
+    "HomePage": {
+        "pastor_hiring_button_text": "English Pastor",
+    
+        "top_hero_title": "College Station Chinese Bible Church",
+        "top_hero_description": "Our mission is to preach the Good News to those who come from all over the world that they know and be followers of Jesus Christ.",
+        "top_hero_button_new_guest": "New Guest",
+        "top_hero_button_events": "Events",
+    
+        "page": "page",
+        "page_up": "Prev Page",
+        "page_down": "Next Page",
+    
+        "featuredEventsTitle": "Featured Events",
+        "featuredEventsDescription": "Discover upcoming events and activities in our community. Browse through our curated selection of featured events.",
+        "recentSermonTitle": "Most Recent Sermon",
+        "recentSermonDescription": "View or listen to our latest sermon and sharing."
+    },
+    "Header": {
+        "navbar_text_about": "About",
+        "navbar_text_events": "Events",
+        "navbar_text_sermons": "Sermons",
+        "navbar_text_ministries": "Ministries",
+        "navbar_text_giving": "Giving",
+        "navbar_text_resources": "Resources",
+    
+        "about_menu_text_about_us": "About Us",
+        "about_menu_text_new_to_cscbc": "New to CSCBC",
+        "about_menu_text_contact": "Contact Us",
+    
+        "ministries_menu_text_family": "Family",
+        "ministries_menu_text_children_n_youth": "Children & Youth",
+        "ministries_menu_text_sisterhood": "Sisterhood",
+        "ministries_menu_text_young_professionals": "Young Professionals",
+        "ministries_menu_text_students": "Students",
+    
+        "resources_menu_text_english_classes": "English Classes",
+        "resources_menu_text_bible_reading": "Bible Reading 2024",
+        "resources_menu_text_sunday_school": "Sunday School",
+        "resources_menu_text_right_now_media": "Right Now Media",
+        "resources_menu_text_4_year_bible_reading_plan": "4 Year Bible Reading Plan",
+        "resources_menu_text_reimbursement": "Reimbursement"
+    
+    }
+}
