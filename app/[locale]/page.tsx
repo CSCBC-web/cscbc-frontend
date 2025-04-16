@@ -9,6 +9,5 @@ export default function Home() {
       <FeaturedEvents />
       <LatestSermon />
     </div>
-    
   );
 }
