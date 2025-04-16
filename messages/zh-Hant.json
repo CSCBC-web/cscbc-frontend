@@ -55,6 +55,9 @@
         "title": "關於我們"
     },
     "Sermon": {
-        "title": "講道"
+        "title": "講道",
+        "page_up": "上一頁",
+        "page_down": "下一頁",
+        "page": "頁"
     }
 }

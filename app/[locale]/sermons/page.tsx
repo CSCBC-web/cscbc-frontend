@@ -57,10 +57,14 @@ export default async function Sermons(props: {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <section className="inline-block h-[20vh] text-center justify-center">
+        {/* TODO: Add a filter tab */}
         <h1 className={title()}>{t("title")}</h1>
       </section>
       <section className="w-full flex gap-10">
-        <div className="w-full px-10 flex flex-col items-center justify-center gap-10">
+        <div className="w-1/6 bg-red-400 px-10 flex flex-col items-center justify-center gap-10">
+          HAHAHAH
+        </div>
+        <div className="w-5/6 px-10 flex flex-col items-center justify-center gap-10">
           <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
             {sermonList.map((sermon: SermonMetaType, index: number) => (
               <SermonCard
@@ -99,15 +103,6 @@ export default async function Sermons(props: {
             </Button>
           </div>
         </div>
-        {/* <SermonCard
-          date="2013-01-01"
-          id="test"
-          locale="en"
-          speaker="Test Speaker"
-          thumbnail="https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/3/Sample_Screenshot_2810427658.png"
-          title="Test Title"
-          tags={["Test Tag 1", "Test Tag 2"]}
-        /> */}
       </section>
     </div>
   );
