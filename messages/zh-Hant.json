@@ -49,5 +49,9 @@
         "footer_events": "活動",
         "footer_ministries": "組織",
         "footer_classes": "課程"
+    },
+
+    "About": {
+        "title": "關於我們"
     }
 }

@@ -48,5 +48,8 @@
         "footer_events": "Events",
         "footer_ministries": "Ministries",
         "footer_classes": "Classes"
+    },
+    "About": {
+        "title": "About Us"
     }
 }
