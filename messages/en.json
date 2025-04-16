@@ -50,12 +50,49 @@
         "footer_classes": "Classes"
     },
     "About": {
-        "title": "About Us"
+        "title": "About Us",
+        "NewComer": {
+            "title": "New to CSCBC"
+        },
+        "Contact": {
+            "title": "Contact Us"
+        }
     },
+    
     "Sermon": {
         "title": "Sermons",
         "page_up": "Prev",
         "page_down": "Next",
         "page": "Page"
+    },
+    "Ministries": {
+        "title": "All Groups",
+        "youth": {
+            "title": "Children & Youth"
+        },
+        "family": {
+            "title": "Family"
+        },
+        "sisterhood": {
+            "title": "Sisterhood"
+        },
+        "young_professionals": {
+            "title": "Young Professionals"
+        },
+        "students": {
+            "title": "Students"
+        }
+    },
+    "Resources": {
+        "title": "Resources",
+        "english_class": {
+            "title": "English Classes"
+        },
+        "sunday_class": {
+            "title": "Sunday School"
+        },
+        "reombursement": {
+            "title": "Reimbursement"
+        }
     }
 }

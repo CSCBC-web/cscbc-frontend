@@ -52,12 +52,52 @@
     },
 
     "About": {
-        "title": "關於我們"
+        "title": "關於我們",
+        "NewComer": {
+            "title": "新來賓"
+        },
+        "Contact": {
+            "title": "聯繫我們"
+        }
     },
+    
     "Sermon": {
         "title": "講道",
         "page_up": "上一頁",
         "page_down": "下一頁",
         "page": "頁"
+    },
+    "Ministries": {
+        "title": "所有組織",
+        "youth": {
+            "title": "青少年"
+        },
+        "family": {
+            "title": "家庭組"
+        },
+        "sisterhood": {
+            "title": "姐妹會"
+        },
+        "young_professionals": {
+            "title": "青年學者"
+        },
+        "students": {
+            "title": "學生團契"
+        }
+    },
+    "Resources": {
+        "title": "資源",
+        "english_class": {
+            "title": "英文課"
+        },
+        "bible_reading": {
+            "title": "讀經"
+        },
+        "sunday_school": {
+            "title": "主日學"
+        },
+        "reimbursement": {
+            "title": "報銷"
+        }
     }
 }

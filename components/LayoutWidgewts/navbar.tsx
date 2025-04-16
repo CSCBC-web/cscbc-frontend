@@ -38,7 +38,7 @@ export const Navbar = () => {
           />
         </Link>
       </NavbarContent>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarItem>
           <NavBarDropdown
             items={[
@@ -50,12 +50,12 @@ export const Navbar = () => {
               {
                 label: `${t("about_menu_text_new_to_cscbc")}`,
                 key: "new",
-                link: "/newComer",
+                link: "/about/newComer",
               },
               {
                 label: `${t("about_menu_text_contact")}`,
                 key: "contact",
-                link: "/contact",
+                link: "/about/contact",
               },
             ]}
             name={t("navbar_text_about")}

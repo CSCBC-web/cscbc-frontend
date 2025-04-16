@@ -52,12 +52,49 @@
     },
 
     "About": {
-        "title": "关于我们"
+        "title": "关于我们",
+        "NewComer": {
+            "title": "新来宾"
+        },
+        "Contact": {
+            "title": "联系我们"
+        }
     },
+    
     "Sermon": {
         "title": "讲道",
         "page_up": "上一页",
         "page_down": "下一页",
         "page": "页"
+    },
+    "Ministries": {
+        "title": "所有组织",
+        "youth": {
+            "title": "青少年"
+        },
+        "family": {
+            "title": "家庭组"
+        },
+        "sisterhood": {
+            "title": "姐妹会"
+        },
+        "young_professionals": {
+            "title": "青年学者"
+        },
+        "students": {
+            "title": "学生团契"
+        }
+    },
+    "Resources": {
+        "title": "资源",
+        "english_class": {
+            "title": "英文课"
+        },
+        "sunday_school": {
+            "title": "主日课程"
+        },
+        "reimbursement": {
+            "title": "报销"
+        }
     }
 }

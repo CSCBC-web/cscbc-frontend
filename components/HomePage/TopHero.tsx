@@ -10,11 +10,11 @@ export default function TopHero() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-4xl h-[50vh] flex-col text-center justify-center align-items-center">
+      <div className="flex max-w-4xl h-[50vh] flex-col text-center justify-center align-items-center">
         <span className={title()}>{t("top_hero_title")}</span>
         <br />
 
-        <div className={subtitle({ class: "mt-4" })}>
+        <div className={subtitle({ class: "max-w-3xl mt-4 text-left" })}>
           {t("top_hero_description")}
         </div>
       </div>
