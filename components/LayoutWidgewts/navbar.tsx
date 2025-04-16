@@ -75,7 +75,7 @@ export const Navbar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="sermons">
+          <Link color="foreground" href="/sermons">
             <Button
               className="flex items-center gap-2"
               size="lg"
@@ -120,7 +120,7 @@ export const Navbar = () => {
           />
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="giving">
+          <Link color="foreground" href="/giving">
             <Button
               className="flex items-center gap-2"
               size="lg"

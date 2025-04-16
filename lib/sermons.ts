@@ -145,3 +145,17 @@ export async function getFilteredSermonsMeta(
 
   return response.json();
 }
+
+export const getLocalizedTitle = (locale: string, sermon: SermonMetaType) => {
+  if (locale === "zh-Hant") return sermon.title_zhHant;
+  if (locale === "zh") return sermon.title_zh;
+
+  return sermon.title_en;
+};
+
+export const getLocalizedTagNames = (locale: string, tag: SermonCatType) => {
+  if (locale === "zh-Hant") return tag.title_zhHant;
+  if (locale === "zh") return tag.title_zh;
+
+  return tag.title_en;
+};

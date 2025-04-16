@@ -1,6 +1,7 @@
 import createMDX from '@next/mdx';
 
 import createNextIntlPlugin from 'next-intl/plugin';
+import { withNextVideo } from 'next-video/process';
 
 const withNextIntl = createNextIntlPlugin();
 const withMDX = createMDX({
@@ -23,4 +24,4 @@ const nextConfig = {// Configure `pageExtensions` to include markdown and MDX fi
     }
 };
 
-export default withMDX(withNextIntl(nextConfig));
+export default withNextVideo(withMDX(withNextIntl(nextConfig)));

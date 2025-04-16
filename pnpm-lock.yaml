@@ -117,6 +117,9 @@ importers:
       '@heroui/card':
         specifier: ^2.2.16
         version: 2.2.16(@heroui/system@2.4.13(@heroui/theme@2.4.13(tailwindcss@3.4.16))(framer-motion@11.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@heroui/theme@2.4.13(tailwindcss@3.4.16))(framer-motion@11.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@madzadev/audio-player':
+        specifier: ^2.1.14
+        version: 2.1.14
       '@next/eslint-plugin-next':
         specifier: 15.0.4
         version: 15.0.4
@@ -930,6 +933,10 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@madzadev/audio-player@2.1.14':
+    resolution: {integrity: sha512-92Mpy6n250oMXNVcWXpIoqsAryrG/9vuWOLV52A13x0pXyxK9rYf54pYxh7hOYjGx5nbmpOcCbj1kvYuf5MFeA==}
+    engines: {node: '>=18'}
 
   '@mdx-js/loader@3.1.0':
     resolution: {integrity: sha512-xU/lwKdOyfXtQGqn3VnJjlDrmKXEvMi1mgYxVmukEUtVycIz1nh7oQ40bKTd4cA7rLStqu0740pnhGYxGoqsCg==}
@@ -5466,6 +5473,11 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@madzadev/audio-player@2.1.14':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@mdx-js/loader@3.1.0(acorn@8.14.1)':
     dependencies:
