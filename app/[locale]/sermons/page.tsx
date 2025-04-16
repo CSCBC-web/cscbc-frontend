@@ -45,14 +45,14 @@ export default async function Sermons(props: {
     if (locale === "zh") return sermon.title_zh;
 
     return sermon.title_en;
-  }
+  };
 
   const getLocalizedTagNames = (locale: string, tag: SermonCatType) => {
     if (locale === "zh-Hant") return tag.title_zhHant;
     if (locale === "zh") return tag.title_zh;
 
     return tag.title_en;
-  }
+  };
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -65,13 +65,15 @@ export default async function Sermons(props: {
             {sermonList.map((sermon: SermonMetaType, index: number) => (
               <SermonCard
                 key={index}
-                locale={locale}
-                id={sermon.documentId}
-                title={getLocalizedTitle(locale, sermon)}
                 date={sermon.date}
+                id={sermon.documentId}
+                locale={locale}
                 speaker={sermon.sermon_speaker.name}
-                tags={sermon.sermon_categories.map((category:SermonCatType) => getLocalizedTagNames(locale, category))}
+                tags={sermon.sermon_categories.map((category: SermonCatType) =>
+                  getLocalizedTagNames(locale, category),
+                )}
                 thumbnailUrl={sermon.thumbnail.url}
+                title={getLocalizedTitle(locale, sermon)}
               />
             ))}
           </div>
