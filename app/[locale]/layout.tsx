@@ -1,15 +1,13 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
 import clsx from "clsx";
+import { hasLocale } from "next-intl";
 
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/LayoutWidgewts/navbar";
-
-import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import Footer from "@/components/LayoutWidgewts/footer";
 
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: {
     // icon: "/favicon.ico",
-    icon: "/public/images/logo_white.png"
+    icon: "/public/images/logo_white.png",
   },
 };
 
@@ -34,15 +32,17 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{locale: string}>;
+  params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     throw new Error(`Locale "${locale}" not supported.`);
   }
+
   return (
     <html suppressHydrationWarning lang={locale}>
       <head />
@@ -52,10 +52,10 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="container mx-auto max-w-full pt-16 px-6 flex-grow">
               {children}
             </main>
             <Footer />

@@ -35,7 +35,7 @@ export default async function AboutPage(props: { params: Params }) {
   const markdown = await res.text();
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <h1 className={title()}>{t("title")}</h1>
       <div className="p-10 w-full flex flex-col items-center justify-center text-start space-y-10">
         <Image

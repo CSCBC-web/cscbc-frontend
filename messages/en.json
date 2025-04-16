@@ -51,5 +51,11 @@
     },
     "About": {
         "title": "About Us"
+    },
+    "Sermon": {
+        "title": "Sermons",
+        "page_up": "Prev",
+        "page_down": "Next",
+        "page": "Page"
     }
 }
