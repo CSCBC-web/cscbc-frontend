@@ -1,20 +1,20 @@
 {
     "HomePage": {
-        "pastor_hiring_button_text": "English Pastor",
+        "top_hero": {
+            "title": "College Station Chinese Bible Church",
+            "description": "Our mission is to preach the Good News to those who come from all over the world that they know and be followers of Jesus Christ.",
+            "button_new_guest": "New Guest",
+            "button_events": "Events"
+        },
     
-        "top_hero_title": "College Station Chinese Bible Church",
-        "top_hero_description": "Our mission is to preach the Good News to those who come from all over the world that they know and be followers of Jesus Christ.",
-        "top_hero_button_new_guest": "New Guest",
-        "top_hero_button_events": "Events",
-    
-        "page": "page",
-        "page_up": "Prev Page",
-        "page_down": "Next Page",
-    
-        "featuredEventsTitle": "Featured Events",
-        "featuredEventsDescription": "Discover upcoming events and activities in our community. Browse through our curated selection of featured events.",
-        "recentSermonTitle": "Most Recent Sermon",
-        "recentSermonDescription": "View or listen to our latest sermon and sharing."
+        "featuredEvents": {
+            "title": "Featured Events",
+            "description": "Explore upcoming events and activities in our community."
+        },
+        "recentSermon": {
+            "title": "Recent Sermon",
+            "description": "View or listen to our latest sermon and sharing."
+        }
     },
     "Header": {
         "navbar_text_about": "About",

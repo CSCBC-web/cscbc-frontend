@@ -49,7 +49,7 @@ export default async function EventsPage(props: {
                 tags={event.event_tags.map((tag:EventCategoryType) => getLocalizedTagNames(locale, tag))}
                 thumbnailUrl={event.thumbnail_img.url}
                 time={event.time}
-            />
+              />
             ))}
           </div>
         </div>  

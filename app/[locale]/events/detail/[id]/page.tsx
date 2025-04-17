@@ -2,10 +2,14 @@ import React from "react";
 import { getTranslations } from "next-intl/server";
 import NextImage from "next/image";
 
-import { getEventById, EventCategoryType, getLocalizedTitle, getLocalizedTagNames, getLocalizedContent } from "@/lib/events";
+import { 
+  getEventById, 
+  EventCategoryType, 
+  getLocalizedTitle, 
+  getLocalizedTagNames, 
+  getLocalizedContent 
+} from "@/lib/events";
 import { title } from "@/components/primitives";
-
-
 
 export default async function EventDetail(
   props: {
@@ -46,8 +50,10 @@ export default async function EventDetail(
   const resp = await getEventById(id);
   const event = resp.data;
 
-  const tags = event.event_tags.map((category: EventCategoryType) => getLocalizedTagNames(locale, category)) || [];
-  const descriptionContent = getLocalizedContent(locale,  event)
+  const tags = event.event_tags.map(
+    (category: EventCategoryType) => getLocalizedTagNames(locale, category)
+  ) || [];
+  const descriptionContent = getLocalizedContent(locale, event)
   const eventTime = parseEventTime(event.time);
 
   const t = await getTranslations("Event");
@@ -69,8 +75,6 @@ export default async function EventDetail(
         />
       </figure>
       <div className="p-10 flex flex-col justify-col justify-center items-start gap-y-6">
-        
-        
         <article className="prose max-w-full">
           {event ? (
             <>
