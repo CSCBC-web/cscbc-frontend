@@ -120,3 +120,28 @@ export async function getFilteredEventsMeta(page:number, tagIds: string[]) {
     }
     return response.json();
 }
+
+export const getLocalizedTitle = (locale: string, event: EventMetaType) => {
+  if (locale === "zh-Hant") return event.title_zhHant;
+  if (locale === "zh") return event.title_zh;
+
+  return event.title_en;
+};
+
+export const getLocalizedTagNames = (locale: string, tag: EventCategoryType) => {
+  if (locale === "zh-Hant") return tag.title_zhHant;
+  if (locale === "zh") return tag.title_zh;
+
+  return tag.title_en;
+};
+
+export const getLocalizedContent = (locale: string, eventDetail: any) => {
+    
+  const description = {
+    en: eventDetail.description_en,
+    zh: eventDetail.description_zh,
+    zhHant: eventDetail.description_zhHant
+  }[locale.replace('-', '')] || eventDetail.description_en;
+
+  return description || "*No description available*"; // 添加默认提示
+};

@@ -58,12 +58,23 @@
             "title": "Contact Us"
         }
     },
-    
+    "Event":{
+        "title": "Events",
+        "page_up": "Prev",
+        "page_down": "Next",
+        "page": "Page",
+        "event_details": {
+            "title": "Event Details"
+        }
+    },
     "Sermon": {
         "title": "Sermons",
         "page_up": "Prev",
         "page_down": "Next",
-        "page": "Page"
+        "page": "Page",
+        "sermon_details": {
+            "title": "Sermon Details"
+        }
     },
     "Ministries": {
         "title": "All Groups",

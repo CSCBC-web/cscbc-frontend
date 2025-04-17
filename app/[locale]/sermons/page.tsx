@@ -6,6 +6,8 @@ import { title } from "@/components/primitives";
 import SermonCard from "@/components/Sermons/sermonCard";
 import {
   getFilteredSermonsMeta,
+  getLocalizedTitle,
+  getLocalizedTagNames,
   SermonMetaType,
   SermonCatType,
 } from "@/lib/sermons";
@@ -39,20 +41,6 @@ export default async function Sermons(props: {
   );
   const sermonList = resp.data;
   const pageMeta = resp.meta.pagination;
-
-  const getLocalizedTitle = (locale: string, sermon: SermonMetaType) => {
-    if (locale === "zh-Hant") return sermon.title_zhHant;
-    if (locale === "zh") return sermon.title_zh;
-
-    return sermon.title_en;
-  };
-
-  const getLocalizedTagNames = (locale: string, tag: SermonCatType) => {
-    if (locale === "zh-Hant") return tag.title_zhHant;
-    if (locale === "zh") return tag.title_zh;
-
-    return tag.title_en;
-  };
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4 py-8 md:py-10">

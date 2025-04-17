@@ -65,7 +65,19 @@
         "title": "講道",
         "page_up": "上一頁",
         "page_down": "下一頁",
-        "page": "頁"
+        "page": "頁",
+        "sermon_details": {
+            "title": "講道詳情"
+        }
+    },
+    "Event": {
+        "title": "活動",
+        "page_up": "上一頁",
+        "page_down": "下一頁",
+        "page": "頁",
+        "event_details": {
+            "title": "活動詳情"
+        }
     },
     "Ministries": {
         "title": "所有組織",
