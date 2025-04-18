@@ -15,7 +15,7 @@ export default async function FeaturedEvents({ locale }: { locale: string }) {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="w-full min-h-[50vh] flex text-center justify-center items-center">
+      <div className="w-full min-h-[100vh] flex text-center justify-center items-center">
         <div className="w-2/5 flex flex-col items-center justify-center gap-4">
           <h1 className={title()}>{t("featuredEvents.title")}</h1>
           <h2 className={subtitle()}>{t("featuredEvents.subtitle")}</h2>

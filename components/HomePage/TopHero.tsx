@@ -9,8 +9,8 @@ export default function TopHero() {
   const t = useTranslations("HomePage");
 
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="flex max-w-4xl h-[50vh] flex-col text-center justify-center align-items-center">
+    <section className="min-h-[80vh] flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <div className="flex max-w-4xl flex-col text-center justify-center align-items-center">
         <span className={title()}>{t("top_hero.title")}</span>
         <br />
 

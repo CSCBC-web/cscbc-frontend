@@ -13,7 +13,7 @@ export default async function LatestSermon({ locale }: { locale: string}) {
   const sermon = sermonList[0];
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="w-full min-h-[50vh] flex text-center justify-center items-center">
+      <div className="w-full min-h-[100vh] flex text-center justify-center items-center">
         <div className="w-2/5">
           <h1 className={title()}>{t("recentSermon.title")}</h1>
           <h2 className={subtitle()}>{t("recentSermon.description")}</h2>
