@@ -1,8 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
-import { title } from "@/components/primitives";
+import { subtitle, title } from "@/components/primitives";
 import EventCard from "../Events/eventCard";
 import { getTop5FeaturedEvents, EventCategoryType, getLocalizedTitle, getLocalizedTagNames } from "@/lib/events";
+import { Link } from "@heroui/link";
+import { Button } from "@heroui/button";
 
 
 export default async function FeaturedEvents({ locale }: { locale: string }) {
@@ -14,10 +16,34 @@ export default async function FeaturedEvents({ locale }: { locale: string }) {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="w-full min-h-[50vh] flex text-center justify-center items-center">
-        <div className="w-2/5">
+        <div className="w-2/5 flex flex-col items-center justify-center gap-4">
           <h1 className={title()}>{t("featuredEvents.title")}</h1>
+          <h2 className={subtitle()}>{t("featuredEvents.subtitle")}</h2>
+          <p className="text-gray-500">{t("featuredEvents.description")}</p>
+          <div className="flex items-center justify-center gap-2">
+            <Link href="/events">
+              <Button 
+                color="primary" 
+                radius="full"
+                variant="shadow" 
+              >
+                  {t("featuredEvents.allEventsButton")}
+              </Button>
+            </Link>
+            <Link href="https://us06web.zoom.us/j/84931430905?pwd=eldHRjZuREh6M3ZiemVaV2JMam9PUT09">
+              <Button 
+                color="primary" 
+                radius="full"
+                variant="shadow" 
+              >
+                  Zoom
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="w-3/5">
+        <div className="w-3/5 flex flex-col items-center justify-center gap-4">
+          {/* TODO: 这里的字体要改一下 */}
+          <h1 className={title()}>{t("featuredEvents.featuredEventsTitle")}</h1>
           <EventCard
             locale={locale}
             id={event.documentId}

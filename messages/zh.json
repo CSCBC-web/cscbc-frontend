@@ -7,12 +7,18 @@
             "button_events": "最近事项"
         },
         "featuredEvents":{
-            "title": "特色活动",
-            "description": "探索我们社区即将举行的特色活动。"
+            "title": "教会活动",
+            "subtitle": "神赋恩赐，喜乐服事",
+            "description": "彼得前书 4:10, 帖撒罗尼迦前书 5:16, 罗马书 12:11",
+            "allEventsButton": "所有活动",
+            "featuredEventsTitle": "特色活动"
         },
         "recentSermon": {
-            "title": "最近讲道",
-            "description": "检视或聆听我们最新的讲道和分享。"
+            "title": "主日敬拜",
+            "description": "每周日敬拜时间为上午11点。",
+            "recentSermonTitle": "最近讲道",
+            "button_contact": "联系我们",
+            "button_bible_reading": "2025 读经计划"
         }
     },
     "Header": {

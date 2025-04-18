@@ -8,12 +8,18 @@
         },
     
         "featuredEvents": {
-            "title": "Featured Events",
-            "description": "Explore upcoming events and activities in our community."
+            "title": "What's Happening",
+            "subtitle": "By God's Gifts, Serve with Joy",
+            "description": "1 Peter 4:10, 1 Thessalonians 5:16, Romans 12:11",
+            "allEventsButton": "All Events",
+            "featuredEventsTitle": "Featured Events"
         },
         "recentSermon": {
-            "title": "Recent Sermon",
-            "description": "View or listen to our latest sermon and sharing."
+            "title": "Sunday Worship",
+            "description": "Worship on every Sunday at 11 AM.",
+            "recentSermonTitle": "Recent Sermon",
+            "button_contact": "Contact Us",
+            "button_bible_reading": "Bible Reading 2025"
         }
     },
     "Header": {

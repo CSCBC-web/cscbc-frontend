@@ -1,8 +1,10 @@
 import { getTranslations } from "next-intl/server";
 
-import { title } from "@/components/primitives";
+import { title, subtitle } from "@/components/primitives";
 import SermonCard from "@/components/Sermons/sermonCard";
 import { getMostRecentSermon, SermonCatType, getLocalizedTitle, getLocalizedTagNames } from "@/lib/sermons";
+import { Link } from "@heroui/link";
+import { Button } from "@heroui/button";
 
 export default async function LatestSermon({ locale }: { locale: string}) {
   const t = await getTranslations("HomePage");
@@ -14,8 +16,32 @@ export default async function LatestSermon({ locale }: { locale: string}) {
       <div className="w-full min-h-[50vh] flex text-center justify-center items-center">
         <div className="w-2/5">
           <h1 className={title()}>{t("recentSermon.title")}</h1>
+          <h2 className={subtitle()}>{t("recentSermon.description")}</h2>
+          <div className="flex items-center justify-center gap-2">
+            <Link href="/about/contact">
+              <Button
+                color="primary" 
+                radius="full"
+                variant="shadow"
+              >
+                {t("recentSermon.button_contact")}
+              </Button>
+            </Link>
+            <Link href="/resources/bibleReading">
+              <Button
+                color="primary" 
+                radius="full"
+                variant="shadow"
+              >
+                {/* TODO: Add this page. */}
+                {t("recentSermon.button_bible_reading")}
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className="w-3/5">
+        <div className="w-3/5 flex flex-col items-center justify-center gap-4">
+          {/* TODO: 这里的字体要改一下 */}
+          <h1 className={title()}>{t("recentSermon.recentSermonTitle")}</h1>
           <SermonCard
             locale={locale}
             id={sermon.documentId}

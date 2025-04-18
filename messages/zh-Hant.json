@@ -8,12 +8,18 @@
         },
     
         "featuredEvents":{
-            "title": "特色活動",
-            "description": "探索我們社區即將舉行的特色活動。"
+            "title": "教會活動",
+            "subtitle": "神賦恩賜，喜樂服事",
+            "description": "彼得前書 4:10, 帖撒羅尼迦前書 5:16, 羅馬書 12:11",
+            "allEventsButton": "所有活動",
+            "featuredEventsTitle": "特色活動"
         },
         "recentSermon": {
-            "title": "最近講道",
-            "description": "檢視或聆聽我們最新的講道和分享。"
+            "title": "主日敬拜",
+            "description": "每周日敬拜時間為上午11點。",
+            "recentSermonTitle": "最近講道",
+            "button_contact": "聯繫我們",
+            "button_bible_reading": "2025 讀經計劃"
         }
     },
     "Header": {
