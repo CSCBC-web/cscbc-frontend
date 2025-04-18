@@ -105,11 +105,14 @@
         "english_class": {
             "title": "English Classes"
         },
-        "sunday_class": {
+        "sunday_school": {
             "title": "Sunday School"
         },
-        "reombursement": {
+        "reimbursement": {
             "title": "Reimbursement"
         }
+    },
+    "Giving": {
+        "title": "Giving"
     }
 }
