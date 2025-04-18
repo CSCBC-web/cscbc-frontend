@@ -14,7 +14,7 @@ import {
 
 export default async function Sermons(props: {
   params: Promise<{ locale: string }>;
-  searchParams: { cat: string[]; page: string; speakers: string[] };
+  searchParams: Promise<{ cat: string[] | undefined; page: string | undefined; speakers: string[] | undefined }>;
 }) {
   // 处理没有传入searchParams的情况
   const searchParams = await props.searchParams;
@@ -45,12 +45,13 @@ export default async function Sermons(props: {
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <section className="inline-block h-[20vh] text-center justify-center">
-        {/* TODO: Add a filter tab */}
+        
         <h1 className={title()}>{t("title")}</h1>
       </section>
       <section className="w-full flex gap-10">
-        <div className="w-1/6 bg-red-400 px-10 flex flex-col items-center justify-center gap-10">
-          HAHAHAH
+        <div className="w-1/6 px-10 flex flex-col items-center justify-center gap-10">
+          {/* TODO: Add a filter tab */}
+          Filter tab is in progress...
         </div>
         <div className="w-5/6 px-10 flex flex-col items-center justify-center gap-10">
           <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
