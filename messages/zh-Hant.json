@@ -117,5 +117,8 @@
         "reimbursement": {
             "title": "報銷"
         }
+    },
+    "Giving": {
+        "title": "奉獻"
     }
 }

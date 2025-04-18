@@ -49,7 +49,7 @@ export default function EventCard({
   };
   return (
     <Link href={`/${locale}/events/detail/${id}`}>
-      <Card className="py-4 w-96" fullWidth={false}>
+      <Card className="py-4 w-80" fullWidth={false}>
         <CardBody className="overflow-visible py-2">
           <figure className="w-full max-h-60 relative aspect-[16/9]">
             <NextImage

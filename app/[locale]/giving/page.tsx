@@ -6,37 +6,43 @@ import MdxLayout from "@/app/MDXLayout";
 
 type Params = Promise<{ locale: string }>;
 
-export default async function NewComersPage(props: { params: Params }) {
+export default async function GivingPage(props: 
+  { params: Params }
+) {
   const params = await props.params;
   const locale = await params.locale;
-  const t = await getTranslations("Resources.english_class");
-  
+  const t = await getTranslations("Giving");
+
   let path = "";
+
   switch (locale) {
     case "en":
       path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/englishClass_en.md";
+        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_en.md";
       break;
     case "zh":
       path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/englishClass_zh.md";
+        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_zh.md";
       break;
     case "zh-Hant":
       path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/englishClass_zh-Hant.md";
+        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_zh-Hant.md";
       break;
     default:
       path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/englishClass_en.md"; // default 'en'
+        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_en.md"; // default 'en'
   }
+  const res = await fetch(path);
+  const markdown = await res.text();
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <h1 className={title()}>{t("title")}</h1>
       <div className="p-10 w-full flex flex-col items-center justify-center text-start space-y-10">
         <MdxLayout>
-          <MDXRemote source={await (await fetch(path)).text()} />
+          <MDXRemote source={markdown} />
         </MdxLayout>
       </div>
     </div>
-  );
+  )
 }

@@ -25,7 +25,7 @@ export default function TopHero() {
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          href="/about/newComer"
         >
           {t("top_hero.button_new_guest")}
         </Link>
@@ -35,7 +35,7 @@ export default function TopHero() {
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.github}
+          href="/events"
         >
           {/* <GithubIcon size={20} /> */}
           {t("top_hero.button_events")}

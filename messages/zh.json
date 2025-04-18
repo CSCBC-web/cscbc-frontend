@@ -113,5 +113,8 @@
         "reimbursement": {
             "title": "报销"
         }
+    },
+    "Giving": {
+        "title": "奉献"
     }
 }
