@@ -2,7 +2,9 @@ import TopHero from "@/components/HomePage/TopHero";
 import FeaturedEvents from "@/components/HomePage/FeaturedEventSection";
 import LatestSermon from "@/components/HomePage/LatestSermon";
 
-export default async function Home(props: { params: { locale: string } }) {
+export default async function Home(props: { 
+  params: Promise<{ locale: string }>; 
+}) {
   const params = await props.params;
   const locale = params.locale;
   return (
