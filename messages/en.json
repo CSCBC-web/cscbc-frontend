@@ -85,19 +85,19 @@
     "Ministries": {
         "title": "All Groups",
         "youth": {
-            "title": "Children & Youth"
+            "title": "Children & Youth Ministry"
         },
         "family": {
-            "title": "Family"
+            "title": "Family Ministry"
         },
         "sisterhood": {
             "title": "Sisterhood"
         },
         "young_professionals": {
-            "title": "Young Professionals"
+            "title": "Young Professionals Ministry"
         },
         "students": {
-            "title": "Students"
+            "title": "Students Ministry"
         }
     },
     "Resources": {

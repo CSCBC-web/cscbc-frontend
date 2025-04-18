@@ -8,7 +8,7 @@ export default async function NewComersPage(props: { params: Params }) {
   const params = await props.params;
   const locale = await params.locale;
   const t = await getTranslations("Ministries");
-  // TODO: Add .md files for paragraphs below.
+  // TODO: Add cards for each ministry
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <h1 className={title()}>{t("title")}</h1>
