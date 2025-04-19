@@ -13,20 +13,16 @@ export default async function NewComersPage(props: { params: Params }) {
   let path = "";
   switch (locale) {
     case "en":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/contact_en.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/contact_en.md`;
       break;
     case "zh":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/contact_zh.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/contact_zh.md`;
       break;
     case "zh-Hant":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/contact_zh-Hant.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/contact_zh-Hant.md`;
       break;
     default:
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/contact_en.md"; // default 'en'
+      path = `${process.env.R2_ENDPOINT}/markdown/contact_en.md`; // default 'en'
   }
   const res = await fetch(path);
   const markdown = await res.text();

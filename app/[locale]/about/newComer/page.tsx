@@ -14,25 +14,20 @@ export default async function NewComersPage(props: { params: Params }) {
   let path = "";
   switch (locale) {
     case "en":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/newGuest_en.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/newGuest_en.md`;
       break;
     case "zh":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/newGuest_zh.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/newGuest_zh.md`;
       break;
     case "zh-Hant":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/newGuest_zh-Hant.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/newGuest_zh-Hant.md`;
       break;
     default:
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/newGuest_en.md"; // default 'en'
+      path = `${process.env.R2_ENDPOINT}/markdown/newGuest_en.md`; // default 'en'
   }
   const res = await fetch(path);
   const markdown = await res.text();
 
-  // TODO: Add .md files for paragraphs below.
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <h1 className={title()}>{t("title")}</h1>
