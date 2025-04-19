@@ -17,20 +17,16 @@ export default async function GivingPage(props:
 
   switch (locale) {
     case "en":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_en.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/giving_en.md`;
       break;
     case "zh":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_zh.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/giving_zh.md`;
       break;
     case "zh-Hant":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_zh-Hant.md";
+      path = `${process.env.R2_ENDPOINT}/markdown/giving_zh-Hant.md`;
       break;
     default:
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/giving_en.md"; // default 'en'
+      path = `${process.env.R2_ENDPOINT}/markdown/giving_en.md`; // default 'en'
   }
   const res = await fetch(path);
   const markdown = await res.text();

@@ -16,20 +16,16 @@ export default async function AboutPage(props: { params: Params }) {
 
   switch (locale) {
     case "en":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/about_en.mdx";
+      path = `${process.env.R2_ENDPOINT}/markdown/about_en.mdx`;
       break;
     case "zh":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/about_zh.mdx";
+      path = `${process.env.R2_ENDPOINT}/markdown/about_zh.mdx`;
       break;
     case "zh-Hant":
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/about_zhHant.mdx";
+      path = `${process.env.R2_ENDPOINT}/markdown/about_zh-Hant.mdx`;
       break;
     default:
-      path =
-        "https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/markdown/about_en.mdx"; // default 'en'
+      path = `${process.env.R2_ENDPOINT}/markdown/about_en.mdx`; // default 'en'
   }
   const res = await fetch(path);
   const markdown = await res.text();
@@ -41,7 +37,7 @@ export default async function AboutPage(props: { params: Params }) {
         <Image
           alt="Church Entire Family"
           height={1000}
-          src="https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/2023church-1.jpg"
+          src={process.env.R2_ENDPOINT + "/2023church-1.jpg"}
           width={1200}
         />
         <MdxLayout>
@@ -51,7 +47,7 @@ export default async function AboutPage(props: { params: Params }) {
         <iframe
           className="w-full"
           height={800}
-          src="https://pub-89e9920648c44264b2116fe675041bf5.r2.dev/CSCBC_constitution.pdf"
+          src={process.env.R2_ENDPOINT + "/CSCBC_constitution.pdf"}
           title="CSCBC Constitution Document"
           width={1200}
         />

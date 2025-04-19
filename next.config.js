@@ -17,7 +17,7 @@ const nextConfig = {// Configure `pageExtensions` to include markdown and MDX fi
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'pub-89e9920648c44264b2116fe675041bf5.r2.dev',
+                hostname: `${process.env.NEXT_IMAGE_HOSTNAME}`,
                 pathname: '/**'
             },
         ],
