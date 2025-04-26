@@ -41,7 +41,7 @@
         "ministries_menu_text_students": "學生團契",
     
         "resources_menu_text_english_classes": "英文課",
-        "resources_menu_text_bible_reading": "2024 讀經",
+        "resources_menu_text_bible_reading": "2025 讀經計劃",
         "resources_menu_text_sunday_school": "主日課程",
         "resources_menu_text_right_now_media": "Right Now 資料",
         "resources_menu_text_4_year_bible_reading_plan": "四年讀經計劃",
@@ -74,6 +74,13 @@
         "page": "頁",
         "sermon_details": {
             "title": "講道詳情"
+        },
+        "filter": {
+            "title": "篩選",
+            "categoryGroupTitle": "類別",
+            "speakerGroupTitle": "講員",
+            "resetButton": "清除",
+            "applyButton": "應用"
         }
     },
     "Event": {
@@ -83,6 +90,12 @@
         "page": "頁",
         "event_details": {
             "title": "活動詳情"
+        },
+        "filter": {
+            "title": "篩選",
+            "categoryGroupTitle": "類別",
+            "resetButton": "清除",
+            "applyButton": "應用"
         }
     },
     "Ministries": {
@@ -109,7 +122,7 @@
             "title": "英文課"
         },
         "bible_reading": {
-            "title": "讀經"
+            "title": "2025 讀經計劃"
         },
         "sunday_school": {
             "title": "主日學"

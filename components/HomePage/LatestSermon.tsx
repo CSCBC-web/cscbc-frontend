@@ -33,7 +33,6 @@ export default async function LatestSermon({ locale }: { locale: string}) {
                 radius="full"
                 variant="shadow"
               >
-                {/* TODO: Add this page. */}
                 {t("recentSermon.button_bible_reading")}
               </Button>
             </Link>

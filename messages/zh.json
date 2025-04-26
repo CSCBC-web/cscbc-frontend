@@ -40,7 +40,7 @@
         "ministries_menu_text_students": "学生团契",
     
         "resources_menu_text_english_classes": "英文课",
-        "resources_menu_text_bible_reading": "2024 读经",
+        "resources_menu_text_bible_reading": "2025 读经计划",
         "resources_menu_text_sunday_school": "主日课程",
         "resources_menu_text_right_now_media": "Right Now 资料",
         "resources_menu_text_4_year_bible_reading_plan": "四年读经计划",
@@ -73,6 +73,13 @@
         "page": "页",
         "sermon_details": {
             "title": "讲道详情"
+        },
+        "filter": {
+            "title": "过滤",
+            "categoryGroupTitle": "类别",
+            "speakerGroupTitle": "讲员",
+            "resetButton": "清除",
+            "applyButton": "应用"
         }
     },
     "Event": {
@@ -82,6 +89,12 @@
         "page": "页",
         "event_details": {
             "title": "活动详情"
+        },
+        "filter": {
+            "title": "过滤",
+            "categoryGroupTitle": "类别",
+            "resetButton": "清除",
+            "applyButton": "应用"
         }
     },
     "Ministries": {
@@ -112,6 +125,9 @@
         },
         "reimbursement": {
             "title": "报销"
+        },
+        "bible_reading": {
+            "title": "2025 读经计划"
         }
     },
     "Giving": {

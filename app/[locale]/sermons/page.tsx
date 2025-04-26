@@ -4,30 +4,44 @@ import { Button } from "@heroui/button";
 
 import { title } from "@/components/primitives";
 import SermonCard from "@/components/Sermons/sermonCard";
+import SermonFilter from "@/components/Sermons/filter";
 import {
   getFilteredSermonsMeta,
   getLocalizedTitle,
   getLocalizedTagNames,
+  getAllSermonSpeakers,
+  getAllSermonCategories,
   SermonMetaType,
   SermonCatType,
+  SermonSpeakerType
 } from "@/lib/sermons";
+import { get } from "http";
 
 export default async function Sermons(props: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ cat: string[] | undefined; page: string | undefined; speakers: string[] | undefined }>;
+  searchParams: Promise<{ 
+    categories: string | undefined; 
+    speakers: string | undefined;
+    page: string | undefined; }>;
 }) {
   // 处理没有传入searchParams的情况
   const searchParams = await props.searchParams;
 
-  if (!searchParams.cat) {
-    searchParams.cat = [];
-  }
+  const parseArrayParam = (param?: string): string[] => {
+    if (!param) return [];
+    return param
+      .split(',')
+      .map(item => decodeURIComponent(item.trim()))
+      .filter(Boolean);
+  };
+
+  const searchParamsSpeakerList = parseArrayParam(searchParams.speakers)
+  const searchParamsCategoryList = parseArrayParam(searchParams.categories)
+
   if (!searchParams.page) {
     searchParams.page = "1";
   }
-  if (!searchParams.speakers) {
-    searchParams.speakers = [];
-  }
+  
 
   const t = await getTranslations("Sermon");
   const params = await props.params;
@@ -35,10 +49,24 @@ export default async function Sermons(props: {
 
   // const currentCat = props.searchParams.cat || "all";
   const resp = await getFilteredSermonsMeta(
+    locale,
     Number(searchParams.page),
-    searchParams.speakers,
-    searchParams.cat,
+    searchParamsSpeakerList,
+    searchParamsCategoryList,
   );
+
+  // get all sermon speakers
+  const speakersResp = await getAllSermonSpeakers();
+  const speakers = speakersResp.data;
+  const speakerNameList = speakers.map((s: SermonSpeakerType) => s.name);
+  // get all sermon categories
+  const categoriesResp = await getAllSermonCategories();
+  const categories = categoriesResp.data;
+
+  const categoryNameListLocalized = categories.map((category: SermonCatType) =>
+    getLocalizedTagNames(locale, category)
+  );
+
   const sermonList = resp.data;
   const pageMeta = resp.meta.pagination;
 
@@ -49,9 +77,19 @@ export default async function Sermons(props: {
         <h1 className={title()}>{t("title")}</h1>
       </section>
       <section className="w-full flex gap-10">
-        <div className="w-1/6 px-10 flex flex-col items-center justify-center gap-10">
-          {/* TODO: Add a filter tab */}
-          Filter tab is in progress...
+        <div className="w-1/6 px-10 flex flex-col items-center justify-start gap-10">
+          <SermonFilter
+            categories={categoryNameListLocalized}
+            speakers={speakerNameList}
+            selectedCategories={[]}
+            selectedSpeakers={[]}
+            categoryGroupTitle={t("filter.categoryGroupTitle")}
+            speakerGroupTitle={t("filter.speakerGroupTitle")}
+            resetButtonText={t("filter.resetButton")}
+            applyButtonText={t("filter.applyButton")}
+            // onCategoryChange={() => {}}
+            // onSpeakerChange={() => {}}
+          />
         </div>
         <div className="w-5/6 px-10 flex flex-col items-center justify-center gap-10">
           <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
