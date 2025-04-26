@@ -104,12 +104,12 @@ export async function getSermonById(id: string) {
 export async function getFilteredSermonsMeta(
   page: number,
   speakers: string[],
-  tagIds: string[],
+  tagNames: string[],
 ) {
   const query = qs.stringify(
     {
       filters: {
-        $and: [
+        $or: [
           {
             sermon_speaker: {
               name: {
@@ -119,8 +119,8 @@ export async function getFilteredSermonsMeta(
           },
           {
             sermon_categories: {
-              documentId: {
-                $in: tagIds,
+              title_en: {
+                $in: tagNames,
               },
             },
           },
@@ -131,6 +131,7 @@ export async function getFilteredSermonsMeta(
         page: page,
         pageSize: PAGE_LIMIT,
       },
+      status: "published",
       sort: ["publishedAt:desc"],
     },
     {
