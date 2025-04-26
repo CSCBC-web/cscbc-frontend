@@ -146,6 +146,11 @@ export const Navbar = () => {
                 link: "/resources/sundaySchool",
               },
               {
+                label: `${t("resources_menu_text_bible_reading")}`,
+                key: "resources-bible-reading",
+                link: "/resources/bibleReading",
+              },
+              {
                 label: `${t("resources_menu_text_reimbursement")}`,
                 key: "resources-reimbursement",
                 link: "/resources/reimbursement",

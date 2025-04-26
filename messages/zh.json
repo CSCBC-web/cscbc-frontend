@@ -40,7 +40,7 @@
         "ministries_menu_text_students": "学生团契",
     
         "resources_menu_text_english_classes": "英文课",
-        "resources_menu_text_bible_reading": "2024 读经",
+        "resources_menu_text_bible_reading": "2025 读经计划",
         "resources_menu_text_sunday_school": "主日课程",
         "resources_menu_text_right_now_media": "Right Now 资料",
         "resources_menu_text_4_year_bible_reading_plan": "四年读经计划",
@@ -112,6 +112,9 @@
         },
         "reimbursement": {
             "title": "报销"
+        },
+        "bible_reading": {
+            "title": "2025 读经计划"
         }
     },
     "Giving": {
