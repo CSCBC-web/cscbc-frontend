@@ -74,6 +74,13 @@
         "page": "頁",
         "sermon_details": {
             "title": "講道詳情"
+        },
+        "filter": {
+            "title": "篩選",
+            "categoryGroupTitle": "類別",
+            "speakerGroupTitle": "講員",
+            "resetButton": "清除",
+            "applyButton": "應用"
         }
     },
     "Event": {
@@ -83,6 +90,12 @@
         "page": "頁",
         "event_details": {
             "title": "活動詳情"
+        },
+        "filter": {
+            "title": "篩選",
+            "categoryGroupTitle": "類別",
+            "resetButton": "清除",
+            "applyButton": "應用"
         }
     },
     "Ministries": {

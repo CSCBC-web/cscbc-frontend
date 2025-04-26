@@ -8,99 +8,66 @@ import { Divider } from "@heroui/divider";
 
 interface FilterProps {
   categories: string[];
-  speakers: string[];
   selectedCategories: string[];
-  selectedSpeakers: string[];
   categoryGroupTitle: string;
-  speakerGroupTitle: string;
   resetButtonText: string;
   applyButtonText: string;
 }
 
-export default function SermonFilter({
+export default function EventFilter({
   categories,
-  speakers,
   selectedCategories,
-  selectedSpeakers,
   categoryGroupTitle,
-  speakerGroupTitle,
   resetButtonText,
   applyButtonText,
 }: FilterProps) {
   const router = useRouter();
   const pathname = usePathname();
-  
-  // TODO: remember check box selection and load the selected items after refreshing page.
-  // 客户端草稿状态
+
   const [draftCategories, setDraftCategories] = useState<string[]>(selectedCategories);
-  const [draftSpeakers, setDraftSpeakers] = useState<string[]>(selectedSpeakers);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
-  // 同步服务端参数变化
   useEffect(() => {
     setDraftCategories(selectedCategories);
-    setDraftSpeakers(selectedSpeakers);
     setHasUnsavedChanges(false);
-  }, [selectedCategories, selectedSpeakers]);
+  }, [selectedCategories]);
 
-  // 更新URL参数（同时处理两个过滤条件）
-  const updateSearchParams = (newCategories: string[], newSpeakers: string[]) => {
+  const updateSearchParams = (newCategories: string[]) => {
     const params = new URLSearchParams();
-
-    // 保留其他参数
     const currentParams = new URLSearchParams(window.location.search);
     currentParams.forEach((value, key) => {
-      if (key !== 'categories' && key !== 'speakers') {
+      if (key !== 'categories') {
         params.set(key, value);
       }
     });
 
-    // 设置新的过滤参数
     if (newCategories.length > 0) {
       params.set('categories', newCategories.map(c => encodeURIComponent(c)).join(','));
     }
-    if (newSpeakers.length > 0) {
-      params.set('speakers', newSpeakers.map(c => encodeURIComponent(c)).join(','));
-    }
 
-    router.replace(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`);
   };
-
-  // 处理分类变化
-  const handleCategoryChange = (values: string[]) => {
-    setDraftCategories(values);
+  const handleCategoryChange = (selected: string[]) => {
+    setDraftCategories(selected);
     setHasUnsavedChanges(true);
-  };
-
-  // 处理讲员变化
-  const handleSpeakerChange = (values: string[]) => {
-    setDraftSpeakers(values);
-    setHasUnsavedChanges(true);
-  };
-
-  // 应用筛选
+  }
   const handleApply = () => {
-    updateSearchParams(draftCategories, draftSpeakers);
-    setHasUnsavedChanges(false);
-  };
-
-  // 重置筛选
+    updateSearchParams(draftCategories);
+  }
   const handleReset = () => {
     setDraftCategories([]);
-    setDraftSpeakers([]);
-    updateSearchParams([], []);
     setHasUnsavedChanges(false);
-  };
+    updateSearchParams([]);
+  }
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-2">
         <h3 className="text-lg font-semibold">{categoryGroupTitle}</h3>
-        <Divider />
         <CheckboxGroup
-          className="max-h-[50vh] overflow-y-auto"
           value={draftCategories}
-          onValueChange={handleCategoryChange}
+          onChange={handleCategoryChange}
+          className="max-h-[50vh] overflow-y-auto"
         >
           {categories.map((category) => (
             <Checkbox key={category} value={category}>
@@ -109,30 +76,14 @@ export default function SermonFilter({
           ))}
         </CheckboxGroup>
       </div>
-
-      <div className="flex flex-col gap-2">
-        <h3 className="text-lg font-semibold">{speakerGroupTitle}</h3>
-        <Divider />
-        <CheckboxGroup
-          className="max-h-[50vh] overflow-y-auto"
-          value={draftSpeakers}
-          onValueChange={handleSpeakerChange}
-        >
-          {speakers.map((speaker) => (
-            <Checkbox key={speaker} value={speaker}>
-              {speaker}
-            </Checkbox>
-          ))}
-        </CheckboxGroup>
-      </div>
-
+      <Divider />
       <div className="flex gap-2">
         {/* TODO: fix buttons' `disabled` logics */}
         <Button
           color="primary"
           variant="flat"
           onPress={handleReset}
-          isDisabled={!draftCategories.length && !draftSpeakers.length}
+          isDisabled={!draftCategories.length}
         >
           {resetButtonText}
         </Button>
@@ -147,5 +98,5 @@ export default function SermonFilter({
         </Button>
       </div>
     </div>
-  );
+  )
 }

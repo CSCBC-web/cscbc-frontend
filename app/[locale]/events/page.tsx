@@ -1,29 +1,57 @@
 import { getTranslations } from "next-intl/server";
+
+import { Link } from "@heroui/link";
+import { Button } from "@heroui/button";
+
 import { title } from "@/components/primitives";
-import { EventMetaType, getFilteredEventsMeta } from "@/lib/events";
 import EventCard from "@/components/Events/eventCard";
-import { EventCategoryType, getLocalizedTitle, getLocalizedTagNames } from "@/lib/events";
+import EventFilter from "@/components/Events/filter";
+import { 
+  EventMetaType,
+  EventCategoryType, 
+  getFilteredEventsMeta,
+  getAllEventCategories,
+  getLocalizedTitle, 
+  getLocalizedTagNames 
+} from "@/lib/events";
 
 export default async function EventsPage(props: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ cat: string[] | undefined; page: string | undefined }>;
+  searchParams: Promise<{ 
+    categories: string | undefined; 
+    page: string | undefined }>;
 }) {
   const t = await getTranslations("Event");
   const params = await props.params;
   const locale = params.locale;
 
   const searchParams = await props.searchParams;
-  if (!searchParams.cat) {
-    searchParams.cat = [];
-  }
+
+  const parseArrayParam = (param?: string): string[] => {
+    if (!param) return [];
+    return param
+      .split(',')
+      .map(item => decodeURIComponent(item.trim()))
+      .filter(Boolean);
+  };
+  const searchParamsCategoryList = parseArrayParam(searchParams.categories);
+
   if (!searchParams.page) {
     searchParams.page = "1";
   }
 
   const resp = await getFilteredEventsMeta(
+    locale,
     Number(searchParams.page),
-    searchParams.cat,
+    searchParamsCategoryList,
   )
+
+  const categoriesResp = await getAllEventCategories();
+  const categories = categoriesResp.data;
+  const categoryNameList = categories.map((category: EventCategoryType) => 
+    getLocalizedTagNames(locale, category)
+  )
+
   const eventList = resp.data;
   const pageMeta = resp.meta.pagination;
 
@@ -34,8 +62,13 @@ export default async function EventsPage(props: {
       </section>
       <section className="w-full flex gap-10">
         <div className="w-1/6 px-10 flex flex-col items-center justify-center gap-10">
-          {/* TODO: Add a filter tab */}
-          Filter tab is in progress...
+          <EventFilter
+            categories={categoryNameList}
+            selectedCategories={[]}
+            categoryGroupTitle={t("filter.categoryGroupTitle")}
+            resetButtonText={t("filter.resetButton")}
+            applyButtonText={t("filter.applyButton")}
+          />
         </div>
         <div className="w-5/6 px-10 flex flex-col items-center justify-center gap-10">
           <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
@@ -51,6 +84,27 @@ export default async function EventsPage(props: {
                 time={event.time}
               />
             ))}
+          </div>
+          <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
+            <Button isDisabled={Number(searchParams.page) === 1}>
+              <Link
+                href={`/${locale}/sermons?page=${Number(searchParams.page) - 1}`}
+              >
+                {t("page_up")}
+              </Link>
+            </Button>
+            <span className="flex items-center">
+              {searchParams.page}/{pageMeta.pageCount} {t("page")}
+            </span>
+            <Button
+              isDisabled={Number(searchParams.page) === pageMeta.pageCount}
+            >
+              <Link
+                href={`/${locale}/sermons/?page=${Number(searchParams.page) + 1}`}
+              >
+                {t("page_down")}
+              </Link>
+            </Button>
           </div>
         </div>  
       </section>

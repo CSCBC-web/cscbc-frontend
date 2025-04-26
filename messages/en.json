@@ -71,6 +71,12 @@
         "page": "Page",
         "event_details": {
             "title": "Event Details"
+        },
+        "filter": {
+            "title": "Event Filter",
+            "categoryGroupTitle": "Category",
+            "resetButton": "Clear All",
+            "applyButton": "Apply"
         }
     },
     "Sermon": {
@@ -80,6 +86,13 @@
         "page": "Page",
         "sermon_details": {
             "title": "Sermon Details"
+        },
+        "filter": {
+            "title": "Sermon Filter",
+            "categoryGroupTitle": "Category",
+            "speakerGroupTitle": "Speaker",
+            "resetButton": "Clear All",
+            "applyButton": "Apply"
         }
     },
     "Ministries": {

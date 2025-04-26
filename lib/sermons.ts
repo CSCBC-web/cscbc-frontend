@@ -102,10 +102,38 @@ export async function getSermonById(id: string) {
 // find sermons meta info by filtering speakers and tags and pagination
 
 export async function getFilteredSermonsMeta(
+  locale: string,
   page: number,
   speakers: string[],
   tagNames: string[],
 ) {
+
+  let categoryFilterJson = {};
+
+  switch (locale) {
+    case "zh-Hant":
+      categoryFilterJson = {
+        title_zhHant: {
+          $in: tagNames,
+        },
+      };
+      break;
+    case "zh":
+      categoryFilterJson = {
+        title_zh: {
+          $in: tagNames,
+        },
+      };
+      break;
+    default:
+      categoryFilterJson = {
+        title_en: {
+          $in: tagNames,
+        },
+      };
+      break;
+  }
+
   const query = qs.stringify(
     {
       filters: {
@@ -118,11 +146,7 @@ export async function getFilteredSermonsMeta(
             },
           },
           {
-            sermon_categories: {
-              title_en: {
-                $in: tagNames,
-              },
-            },
+            sermon_categories: categoryFilterJson
           },
         ],
       },
@@ -160,3 +184,44 @@ export const getLocalizedTagNames = (locale: string, tag: SermonCatType) => {
 
   return tag.title_en;
 };
+
+// get all sermon speakers
+
+export async function getAllSermonSpeakers() {
+  const query = qs.stringify(
+    {
+      populate: "*",
+      status: "published",
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    },
+  );
+  const response = await fetch(`${API_BASE_URL}/api/sermon-speakers?${query}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch sermon speakers");
+  }
+
+  return response.json();
+}
+
+// get all sermon categories
+export async function getAllSermonCategories() {
+  const query = qs.stringify(
+    {
+      populate: "*",
+      status: "published",
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    },
+  );
+  const response = await fetch(`${API_BASE_URL}/api/sermon-categories?${query}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch sermon categories");
+  }
+
+  return response.json();
+}
