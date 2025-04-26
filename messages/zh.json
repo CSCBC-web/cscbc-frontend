@@ -73,6 +73,13 @@
         "page": "页",
         "sermon_details": {
             "title": "讲道详情"
+        },
+        "filter": {
+            "title": "过滤",
+            "categoryGroupTitle": "类别",
+            "speakerGroupTitle": "讲员",
+            "resetButton": "清除",
+            "applyButton": "应用"
         }
     },
     "Event": {
@@ -82,6 +89,12 @@
         "page": "页",
         "event_details": {
             "title": "活动详情"
+        },
+        "filter": {
+            "title": "过滤",
+            "categoryGroupTitle": "类别",
+            "resetButton": "清除",
+            "applyButton": "应用"
         }
     },
     "Ministries": {

@@ -96,21 +96,45 @@ export async function getEventById(id: string) {
     return response.json();
 }
 
-export async function getFilteredEventsMeta(page:number, tagIds: string[]) {
-
+export async function getFilteredEventsMeta(
+    locale: string,
+    page:number, 
+    tagNames: string[]) {
+    let filterJson = {}
+    switch (locale) {
+      case "zh-Hant":
+        filterJson = {
+          title_zhHant: {
+              $in: tagNames
+          }
+        }
+        break;
+      case "zh":
+        filterJson = {
+          title_zh: {
+              $in: tagNames
+          }
+        }
+        break;
+      default:
+        filterJson = {
+          title_en: {
+              $in: tagNames
+          }
+        }
+        break;
+    }
     const query = qs.stringify({
         filters: {
-            event_tags: {
-                documentId: {
-                    $in: tagIds
-                }
-            }
+            event_tags: filterJson
         },
         populate: '*',
         pagination: {
             page: page,
             pageSize: PAGE_LIMIT,
-        }
+        },
+        status: "published",
+        sort: ['publishedAt:desc'],
     },{
         encodeValuesOnly: true,
     });
@@ -145,3 +169,20 @@ export const getLocalizedContent = (locale: string, eventDetail: any) => {
 
   return description || "*No description available*"; // 添加默认提示
 };
+
+export async function getAllEventCategories() {
+  const query = qs.stringify(
+    {
+      populate: '*',
+      status: 'published',
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+  const response = await fetch(`${API_BASE_URL}/api/event-tags?${query}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch all event categories');
+  }
+  return response.json();
+}

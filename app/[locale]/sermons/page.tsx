@@ -9,9 +9,13 @@ import {
   getFilteredSermonsMeta,
   getLocalizedTitle,
   getLocalizedTagNames,
+  getAllSermonSpeakers,
+  getAllSermonCategories,
   SermonMetaType,
   SermonCatType,
+  SermonSpeakerType
 } from "@/lib/sermons";
+import { get } from "http";
 
 export default async function Sermons(props: {
   params: Promise<{ locale: string }>;
@@ -45,10 +49,24 @@ export default async function Sermons(props: {
 
   // const currentCat = props.searchParams.cat || "all";
   const resp = await getFilteredSermonsMeta(
+    locale,
     Number(searchParams.page),
     searchParamsSpeakerList,
     searchParamsCategoryList,
   );
+
+  // get all sermon speakers
+  const speakersResp = await getAllSermonSpeakers();
+  const speakers = speakersResp.data;
+  const speakerNameList = speakers.map((s: SermonSpeakerType) => s.name);
+  // get all sermon categories
+  const categoriesResp = await getAllSermonCategories();
+  const categories = categoriesResp.data;
+
+  const categoryNameListLocalized = categories.map((category: SermonCatType) =>
+    getLocalizedTagNames(locale, category)
+  );
+
   const sermonList = resp.data;
   const pageMeta = resp.meta.pagination;
 
@@ -60,12 +78,15 @@ export default async function Sermons(props: {
       </section>
       <section className="w-full flex gap-10">
         <div className="w-1/6 px-10 flex flex-col items-center justify-start gap-10">
-          {/* TODO: search all categories and speakers instead of tmp values */}
           <SermonFilter
-            categories={["Luke", "Mathew"]}
-            speakers={["Pastor Horn", "Joseph Li"]}
+            categories={categoryNameListLocalized}
+            speakers={speakerNameList}
             selectedCategories={[]}
             selectedSpeakers={[]}
+            categoryGroupTitle={t("filter.categoryGroupTitle")}
+            speakerGroupTitle={t("filter.speakerGroupTitle")}
+            resetButtonText={t("filter.resetButton")}
+            applyButtonText={t("filter.applyButton")}
             // onCategoryChange={() => {}}
             // onSpeakerChange={() => {}}
           />
