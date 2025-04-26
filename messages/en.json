@@ -41,7 +41,7 @@
         "ministries_menu_text_students": "Students",
     
         "resources_menu_text_english_classes": "English Classes",
-        "resources_menu_text_bible_reading": "Bible Reading 2024",
+        "resources_menu_text_bible_reading": "Bible Reading 2025",
         "resources_menu_text_sunday_school": "Sunday School",
         "resources_menu_text_right_now_media": "Right Now Media",
         "resources_menu_text_4_year_bible_reading_plan": "4 Year Bible Reading Plan",
@@ -110,6 +110,9 @@
         },
         "reimbursement": {
             "title": "Reimbursement"
+        },
+        "bible_reading": {
+            "title": "Bible Reading 2025"
         }
     },
     "Giving": {
