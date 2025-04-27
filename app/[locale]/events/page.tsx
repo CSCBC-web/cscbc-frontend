@@ -64,7 +64,7 @@ export default async function EventsPage(props: {
         <div className="w-1/6 px-10 flex flex-col items-center justify-center gap-10">
           <EventFilter
             categories={categoryNameList}
-            selectedCategories={[]}
+            selectedCategories={searchParamsCategoryList}
             categoryGroupTitle={t("filter.categoryGroupTitle")}
             resetButtonText={t("filter.resetButton")}
             applyButtonText={t("filter.applyButton")}

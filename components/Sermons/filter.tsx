@@ -30,7 +30,6 @@ export default function SermonFilter({
   const router = useRouter();
   const pathname = usePathname();
   
-  // TODO: remember check box selection and load the selected items after refreshing page.
   // 客户端草稿状态
   const [draftCategories, setDraftCategories] = useState<string[]>(selectedCategories);
   const [draftSpeakers, setDraftSpeakers] = useState<string[]>(selectedSpeakers);
@@ -88,8 +87,10 @@ export default function SermonFilter({
   const handleReset = () => {
     setDraftCategories([]);
     setDraftSpeakers([]);
-    updateSearchParams([], []);
+    
     setHasUnsavedChanges(false);
+
+    // updateSearchParams([], []);
   };
 
   return (
@@ -127,12 +128,11 @@ export default function SermonFilter({
       </div>
 
       <div className="flex gap-2">
-        {/* TODO: fix buttons' `disabled` logics */}
         <Button
           color="primary"
           variant="flat"
           onPress={handleReset}
-          isDisabled={!draftCategories.length && !draftSpeakers.length}
+          // isDisabled={!draftCategories.length && !draftSpeakers.length}
         >
           {resetButtonText}
         </Button>
@@ -141,7 +141,7 @@ export default function SermonFilter({
           color="secondary"
           variant="solid"
           onPress={handleApply}
-          isDisabled={!hasUnsavedChanges}
+          // isDisabled={!hasUnsavedChanges}
         >
           {applyButtonText}
         </Button>
