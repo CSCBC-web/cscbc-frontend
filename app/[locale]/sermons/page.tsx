@@ -7,6 +7,7 @@ import SermonCard from "@/components/Sermons/sermonCard";
 import SermonFilter from "@/components/Sermons/filter";
 import {
   getFilteredSermonsMeta,
+  filterSermonsBySpeakerCategoryIds,
   getLocalizedTitle,
   getLocalizedTagNames,
   getAllSermonSpeakers,
@@ -17,6 +18,58 @@ import {
 } from "@/lib/sermons";
 import { get } from "http";
 
+async function getSermonPageData(
+  locale: string,
+  searchParams: {
+    categories?: string;
+    speakers?: string;
+    page?: string
+  }
+) {
+  const parseArrayParam = (param?: string): string[] => {
+    if (!param) return [];
+    return param
+      .split(',')
+      .map(item => decodeURIComponent(item.trim()))
+      .filter(Boolean);
+  }
+  if (!searchParams.page) {
+    searchParams.page = "1";
+  }
+
+  const searchParamsCategoryList = parseArrayParam(searchParams.categories);
+  const searchParamsSpeakerList = parseArrayParam(searchParams.speakers);
+
+  const categoryResp = await getAllSermonCategories();
+  const categories = categoryResp.data;
+  const categoryOptions = categories.map((category: SermonCatType) => ({
+    documentId: category.documentId,
+    label: getLocalizedTagNames(locale, category),
+  }));
+
+  const speakerResp = await getAllSermonSpeakers();
+  const speakers = speakerResp.data;
+  const speakerOptions = speakers.map((speaker: SermonSpeakerType) => ({
+    documentId: speaker.documentId,
+    name: speaker.name,
+  }));
+
+  const sermonResp = await filterSermonsBySpeakerCategoryIds(
+    Number(searchParams.page),
+    searchParamsSpeakerList,
+    searchParamsCategoryList,
+  );
+
+  return {
+    searchParamsCategoryList,
+    searchParamsSpeakerList,
+    categoryOptions,
+    speakerOptions,
+    sermonList: sermonResp.data,
+    pageMeta: sermonResp.meta.pagination,
+  };
+}
+
 export default async function Sermons(props: {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ 
@@ -24,51 +77,19 @@ export default async function Sermons(props: {
     speakers: string | undefined;
     page: string | undefined; }>;
 }) {
-  // 处理没有传入searchParams的情况
-  const searchParams = await props.searchParams;
-
-  const parseArrayParam = (param?: string): string[] => {
-    if (!param) return [];
-    return param
-      .split(',')
-      .map(item => decodeURIComponent(item.trim()))
-      .filter(Boolean);
-  };
-
-  const searchParamsSpeakerList = parseArrayParam(searchParams.speakers)
-  const searchParamsCategoryList = parseArrayParam(searchParams.categories)
-
-  if (!searchParams.page) {
-    searchParams.page = "1";
-  }
-  
-
   const t = await getTranslations("Sermon");
   const params = await props.params;
   const locale = params.locale;
+  const searchParams = await props.searchParams;
 
-  // const currentCat = props.searchParams.cat || "all";
-  const resp = await getFilteredSermonsMeta(
-    locale,
-    Number(searchParams.page),
-    searchParamsSpeakerList,
+  const {
     searchParamsCategoryList,
-  );
-
-  // get all sermon speakers
-  const speakersResp = await getAllSermonSpeakers();
-  const speakers = speakersResp.data;
-  const speakerNameList = speakers.map((s: SermonSpeakerType) => s.name);
-  // get all sermon categories
-  const categoriesResp = await getAllSermonCategories();
-  const categories = categoriesResp.data;
-
-  const categoryNameListLocalized = categories.map((category: SermonCatType) =>
-    getLocalizedTagNames(locale, category)
-  );
-
-  const sermonList = resp.data;
-  const pageMeta = resp.meta.pagination;
+    searchParamsSpeakerList,
+    categoryOptions,
+    speakerOptions,
+    sermonList,
+    pageMeta,
+  } = await getSermonPageData(locale, searchParams);
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -79,8 +100,8 @@ export default async function Sermons(props: {
       <section className="w-full flex gap-10">
         <div className="w-1/6 px-10 flex flex-col items-center justify-start gap-10">
           <SermonFilter
-            categories={categoryNameListLocalized}
-            speakers={speakerNameList}
+            categories={categoryOptions}
+            speakers={speakerOptions}
             selectedCategories={searchParamsCategoryList}
             selectedSpeakers={searchParamsSpeakerList}
             categoryGroupTitle={t("filter.categoryGroupTitle")}
