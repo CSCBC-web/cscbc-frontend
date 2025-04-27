@@ -6,8 +6,13 @@ import { Button } from "@heroui/button";
 import { Checkbox, CheckboxGroup } from "@heroui/checkbox";
 import { Divider } from "@heroui/divider";
 
+interface CategoryOption {
+  documentId: string;
+  label: string;
+}
+
 interface FilterProps {
-  categories: string[];
+  categories: CategoryOption[];
   selectedCategories: string[];
   categoryGroupTitle: string;
   resetButtonText: string;
@@ -47,17 +52,20 @@ export default function EventFilter({
 
     router.push(`${pathname}?${params.toString()}`);
   };
+
   const handleCategoryChange = (selected: string[]) => {
     setDraftCategories(selected);
     setHasUnsavedChanges(true);
-  }
+  };
   const handleApply = () => {
     updateSearchParams(draftCategories);
-  }
+  };
   const handleReset = () => {
+    // 清空本地状态，CheckboxGroup 的 value={draftCategories} 得到更新，从而取消所有勾选
     setDraftCategories([]);
     setHasUnsavedChanges(false);
-    updateSearchParams([]);
+    // 更新 URL 上的搜索参数
+    // updateSearchParams([]);
   }
 
   return (
@@ -70,20 +78,20 @@ export default function EventFilter({
           className="max-h-[50vh] overflow-y-auto"
         >
           {categories.map((category) => (
-            <Checkbox key={category} value={category}>
-              {category}
+            <Checkbox key={category.documentId} value={category.documentId}>
+              {category.label}
             </Checkbox>
           ))}
         </CheckboxGroup>
       </div>
       <Divider />
       <div className="flex gap-2">
-        {/* TODO: fix buttons' `disabled` logics */}
+        
         <Button
           color="primary"
           variant="flat"
           onPress={handleReset}
-          isDisabled={!draftCategories.length}
+          // isDisabled={!draftCategories.length}
         >
           {resetButtonText}
         </Button>
@@ -92,11 +100,11 @@ export default function EventFilter({
           color="secondary"
           variant="solid"
           onPress={handleApply}
-          isDisabled={!hasUnsavedChanges}
+          // isDisabled={!hasUnsavedChanges}
         >
           {applyButtonText}
         </Button>
       </div>
     </div>
-  )
+  );
 }

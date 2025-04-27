@@ -6,9 +6,18 @@ import { Button } from "@heroui/button";
 import { Checkbox, CheckboxGroup } from "@heroui/checkbox";
 import { Divider } from "@heroui/divider";
 
+interface CategoryOption {
+  documentId: string;
+  label: string;
+}
+interface SpeakerOption {
+  documentId: string;
+  name: string;
+}
+
 interface FilterProps {
-  categories: string[];
-  speakers: string[];
+  categories: CategoryOption[];
+  speakers: SpeakerOption[];
   selectedCategories: string[];
   selectedSpeakers: string[];
   categoryGroupTitle: string;
@@ -30,7 +39,6 @@ export default function SermonFilter({
   const router = useRouter();
   const pathname = usePathname();
   
-  // TODO: remember check box selection and load the selected items after refreshing page.
   // 客户端草稿状态
   const [draftCategories, setDraftCategories] = useState<string[]>(selectedCategories);
   const [draftSpeakers, setDraftSpeakers] = useState<string[]>(selectedSpeakers);
@@ -88,8 +96,10 @@ export default function SermonFilter({
   const handleReset = () => {
     setDraftCategories([]);
     setDraftSpeakers([]);
-    updateSearchParams([], []);
+    
     setHasUnsavedChanges(false);
+
+    // updateSearchParams([], []);
   };
 
   return (
@@ -103,8 +113,8 @@ export default function SermonFilter({
           onValueChange={handleCategoryChange}
         >
           {categories.map((category) => (
-            <Checkbox key={category} value={category}>
-              {category}
+            <Checkbox key={category.documentId} value={category.documentId}>
+              {category.label}
             </Checkbox>
           ))}
         </CheckboxGroup>
@@ -119,20 +129,19 @@ export default function SermonFilter({
           onValueChange={handleSpeakerChange}
         >
           {speakers.map((speaker) => (
-            <Checkbox key={speaker} value={speaker}>
-              {speaker}
+            <Checkbox key={speaker.documentId} value={speaker.documentId}>
+              {speaker.name}
             </Checkbox>
           ))}
         </CheckboxGroup>
       </div>
 
       <div className="flex gap-2">
-        {/* TODO: fix buttons' `disabled` logics */}
         <Button
           color="primary"
           variant="flat"
           onPress={handleReset}
-          isDisabled={!draftCategories.length && !draftSpeakers.length}
+          // isDisabled={!draftCategories.length && !draftSpeakers.length}
         >
           {resetButtonText}
         </Button>
@@ -141,7 +150,7 @@ export default function SermonFilter({
           color="secondary"
           variant="solid"
           onPress={handleApply}
-          isDisabled={!hasUnsavedChanges}
+          // isDisabled={!hasUnsavedChanges}
         >
           {applyButtonText}
         </Button>

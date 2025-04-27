@@ -29,8 +29,9 @@ export default function LanguageSwitcher() {
 
     const handleLanguageChange = (lang: string) => {
         const currentPath = window.location.pathname;
+        const currentSearch = window.location.search;
         const newPath = currentPath.replace(/^\/([^\/]+)(\/|$)/, `/${lang}$2`);
-        router.push(newPath);
+        router.push(newPath+currentSearch);
         handleClose();
     };
 
