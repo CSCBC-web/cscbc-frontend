@@ -103,19 +103,17 @@ export async function filterEventsByTagIds(
   const query = qs.stringify({
     filters: {
       event_tags: {
-        documentId: {
-          $in: tagIds
-        }
+        documentId: { $in: tagIds }
       }
     },
     populate: '*',
-        pagination: {
-            page: page,
-            pageSize: PAGE_LIMIT,
-        },
-        status: "published",
-        sort: ['publishedAt:desc'],
-  },{
+    pagination: {
+      page: page,
+      pageSize: PAGE_LIMIT,
+    },
+    status: "published",
+    sort: ['publishedAt:desc'],
+  }, {
     encodeValuesOnly: true,
   });
 

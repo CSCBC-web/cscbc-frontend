@@ -6,9 +6,18 @@ import { Button } from "@heroui/button";
 import { Checkbox, CheckboxGroup } from "@heroui/checkbox";
 import { Divider } from "@heroui/divider";
 
+interface CategoryOption {
+  documentId: string;
+  label: string;
+}
+interface SpeakerOption {
+  documentId: string;
+  name: string;
+}
+
 interface FilterProps {
-  categories: string[];
-  speakers: string[];
+  categories: CategoryOption[];
+  speakers: SpeakerOption[];
   selectedCategories: string[];
   selectedSpeakers: string[];
   categoryGroupTitle: string;
@@ -104,8 +113,8 @@ export default function SermonFilter({
           onValueChange={handleCategoryChange}
         >
           {categories.map((category) => (
-            <Checkbox key={category} value={category}>
-              {category}
+            <Checkbox key={category.documentId} value={category.documentId}>
+              {category.label}
             </Checkbox>
           ))}
         </CheckboxGroup>
@@ -120,8 +129,8 @@ export default function SermonFilter({
           onValueChange={handleSpeakerChange}
         >
           {speakers.map((speaker) => (
-            <Checkbox key={speaker} value={speaker}>
-              {speaker}
+            <Checkbox key={speaker.documentId} value={speaker.documentId}>
+              {speaker.name}
             </Checkbox>
           ))}
         </CheckboxGroup>

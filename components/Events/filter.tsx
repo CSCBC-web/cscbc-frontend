@@ -6,8 +6,13 @@ import { Button } from "@heroui/button";
 import { Checkbox, CheckboxGroup } from "@heroui/checkbox";
 import { Divider } from "@heroui/divider";
 
+interface CategoryOption {
+  documentId: string;
+  label: string;
+}
+
 interface FilterProps {
-  categories: string[];
+  categories: CategoryOption[];
   selectedCategories: string[];
   categoryGroupTitle: string;
   resetButtonText: string;
@@ -47,13 +52,14 @@ export default function EventFilter({
 
     router.push(`${pathname}?${params.toString()}`);
   };
+
   const handleCategoryChange = (selected: string[]) => {
     setDraftCategories(selected);
     setHasUnsavedChanges(true);
-  }
+  };
   const handleApply = () => {
     updateSearchParams(draftCategories);
-  }
+  };
   const handleReset = () => {
     // 清空本地状态，CheckboxGroup 的 value={draftCategories} 得到更新，从而取消所有勾选
     setDraftCategories([]);
@@ -72,8 +78,8 @@ export default function EventFilter({
           className="max-h-[50vh] overflow-y-auto"
         >
           {categories.map((category) => (
-            <Checkbox key={category} value={category}>
-              {category}
+            <Checkbox key={category.documentId} value={category.documentId}>
+              {category.label}
             </Checkbox>
           ))}
         </CheckboxGroup>
@@ -100,5 +106,5 @@ export default function EventFilter({
         </Button>
       </div>
     </div>
-  )
+  );
 }

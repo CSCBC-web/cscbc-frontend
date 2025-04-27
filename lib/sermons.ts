@@ -56,6 +56,8 @@ export async function getMostRecentSermon() {
   return response.json();
 }
 
+
+
 // find all sermons meta info by pagination
 export async function getSermonsMetaByPage(page: number) {
   const query = qs.stringify(
@@ -98,7 +100,44 @@ export async function getSermonById(id: string) {
 
   return response.json();
 }
+export async function filterSermonsBySpeakerCategoryIds(
+  page: number,
+  speakerIds: string[],
+  categoryIds: string[],
+) {
+  const query = qs.stringify({
+    filters: {
+      $or: [
+        {
+          sermon_speaker: {
+            documentId: { $in: speakerIds }
+          }
+        },
+        {
+          sermon_categories: {
+            documentId: { $in: categoryIds }
+          }
+        }
+      ]
+    },
+    populate: ["thumbnail", "sermon_speaker", "sermon_categories"],
+    pagination: {
+      page: page,
+      pageSize: PAGE_LIMIT,
+    },
+    status: "published",
+    sort: ["publishedAt:desc"],
+  },{
+    encodeValuesOnly: true, // prettify URL
+  });
+  const response = await fetch(`${API_BASE_URL}/api/sermons?${query}`);
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch filtered sermons meta");
+  }
+
+  return response.json();
+}
 // find sermons meta info by filtering speakers and tags and pagination
 
 export async function getFilteredSermonsMeta(
