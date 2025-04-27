@@ -96,6 +96,36 @@ export async function getEventById(id: string) {
     return response.json();
 }
 
+export async function filterEventsByTagIds(
+  page: number,
+  tagIds: string[]
+) {
+  const query = qs.stringify({
+    filters: {
+      event_tags: {
+        documentId: {
+          $in: tagIds
+        }
+      }
+    },
+    populate: '*',
+        pagination: {
+            page: page,
+            pageSize: PAGE_LIMIT,
+        },
+        status: "published",
+        sort: ['publishedAt:desc'],
+  },{
+    encodeValuesOnly: true,
+  });
+
+  const response = await fetch(`${API_BASE_URL}/api/events?${query}`);
+  if (!response.ok) {
+      throw new Error('Failed to fetch filtered events meta');
+  }
+  return response.json();
+}
+
 export async function getFilteredEventsMeta(
     locale: string,
     page:number, 

@@ -55,9 +55,11 @@ export default function EventFilter({
     updateSearchParams(draftCategories);
   }
   const handleReset = () => {
+    // 清空本地状态，CheckboxGroup 的 value={draftCategories} 得到更新，从而取消所有勾选
     setDraftCategories([]);
     setHasUnsavedChanges(false);
-    updateSearchParams([]);
+    // 更新 URL 上的搜索参数
+    // updateSearchParams([]);
   }
 
   return (
@@ -78,12 +80,12 @@ export default function EventFilter({
       </div>
       <Divider />
       <div className="flex gap-2">
-        {/* TODO: fix buttons' `disabled` logics */}
+        
         <Button
           color="primary"
           variant="flat"
           onPress={handleReset}
-          isDisabled={!draftCategories.length}
+          // isDisabled={!draftCategories.length}
         >
           {resetButtonText}
         </Button>
@@ -92,7 +94,7 @@ export default function EventFilter({
           color="secondary"
           variant="solid"
           onPress={handleApply}
-          isDisabled={!hasUnsavedChanges}
+          // isDisabled={!hasUnsavedChanges}
         >
           {applyButtonText}
         </Button>

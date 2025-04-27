@@ -81,8 +81,8 @@ export default async function Sermons(props: {
           <SermonFilter
             categories={categoryNameListLocalized}
             speakers={speakerNameList}
-            selectedCategories={[]}
-            selectedSpeakers={[]}
+            selectedCategories={searchParamsCategoryList}
+            selectedSpeakers={searchParamsSpeakerList}
             categoryGroupTitle={t("filter.categoryGroupTitle")}
             speakerGroupTitle={t("filter.speakerGroupTitle")}
             resetButtonText={t("filter.resetButton")}

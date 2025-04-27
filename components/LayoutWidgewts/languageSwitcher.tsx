@@ -29,6 +29,12 @@ export default function LanguageSwitcher() {
 
     const handleLanguageChange = (lang: string) => {
         const currentPath = window.location.pathname;
+        // FIXME: 这里替换只替换了`path`中的第一个`/`后面的内容
+        // 如果full path 是 `/en/sermons?***`，后边的search params会丢失
+        // 但是因为search params是和locale有关的，比如sermons的搜索是?categories=Luke
+        // 到了`zh`中，就变成了?categories=路加福音
+        // 这里需要考虑到search params的情况
+        // 暂时搁置
         const newPath = currentPath.replace(/^\/([^\/]+)(\/|$)/, `/${lang}$2`);
         router.push(newPath);
         handleClose();
