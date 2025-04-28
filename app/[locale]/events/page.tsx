@@ -102,21 +102,31 @@ export default async function EventsPage(props: {
               />
             ))}
           </div>
-          <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
+            <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
             <Button isDisabled={Number(searchParams.page) === 1}>
-              <Link href={`/${locale}/sermons?page=${Number(searchParams.page) - 1}`}>
-                {t("page_up")}
+              <Link
+              href={`/${locale}/sermons?${new URLSearchParams({
+                ...(searchParams.categories ? { categories: searchParams.categories } : {}),
+                page: String(Number(searchParams.page) - 1)
+              }).toString()}`}
+              >
+              {t("page_up")}
               </Link>
             </Button>
             <span className="flex items-center">
               {searchParams.page}/{pageMeta.pageCount} {t("page")}
             </span>
             <Button isDisabled={Number(searchParams.page) === pageMeta.pageCount}>
-              <Link href={`/${locale}/sermons/?page=${Number(searchParams.page) + 1}`}>
-                {t("page_down")}
+              <Link
+              href={`/${locale}/sermons?${new URLSearchParams({
+                ...(searchParams.categories ? { categories: searchParams.categories } : {}),
+                page: String(Number(searchParams.page) + 1)
+              }).toString()}`}
+              >
+              {t("page_down")}
               </Link>
             </Button>
-          </div>
+            </div>
         </div>  
       </section>
     </div>
