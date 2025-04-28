@@ -129,12 +129,16 @@ export default async function Sermons(props: {
               />
             ))}
           </div>
-          <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
+            <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
             <Button isDisabled={Number(searchParams.page) === 1}>
               <Link
-                href={`/${locale}/sermons?page=${Number(searchParams.page) - 1}`}
+              href={`/${locale}/sermons?${new URLSearchParams({
+                page: String(Number(searchParams.page) - 1),
+                ...(searchParams.categories ? { categories: searchParams.categories } : {}),
+                ...(searchParams.speakers ? { speakers: searchParams.speakers } : {}),
+              }).toString()}`}
               >
-                {t("page_up")}
+              {t("page_up")}
               </Link>
             </Button>
             <span className="flex items-center">
@@ -144,12 +148,16 @@ export default async function Sermons(props: {
               isDisabled={Number(searchParams.page) === pageMeta.pageCount}
             >
               <Link
-                href={`/${locale}/sermons/?page=${Number(searchParams.page) + 1}`}
+              href={`/${locale}/sermons?${new URLSearchParams({
+                page: String(Number(searchParams.page) + 1),
+                ...(searchParams.categories ? { categories: searchParams.categories } : {}),
+                ...(searchParams.speakers ? { speakers: searchParams.speakers } : {}),
+              }).toString()}`}
               >
-                {t("page_down")}
+              {t("page_down")}
               </Link>
             </Button>
-          </div>
+            </div>
         </div>
       </section>
     </div>
