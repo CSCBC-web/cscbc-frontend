@@ -88,8 +88,8 @@ export default function EventFilter({
       <div className="flex gap-2">
         
         <Button
-          color="primary"
-          variant="flat"
+          color="secondary"
+          variant="solid"
           onPress={handleReset}
           // isDisabled={!draftCategories.length}
         >
@@ -97,7 +97,7 @@ export default function EventFilter({
         </Button>
         
         <Button
-          color="secondary"
+          color="primary"
           variant="solid"
           onPress={handleApply}
           // isDisabled={!hasUnsavedChanges}

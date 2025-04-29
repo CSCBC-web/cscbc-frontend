@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <HeroUINavbar isBordered maxWidth="2xl">
-      <NavbarContent justify="start">
+      <NavbarContent className="hidden md:flex gap-4" justify="start">
         <Link href="/">
           <Image
             alt="Logo"
@@ -38,7 +38,7 @@ export const Navbar = () => {
           />
         </Link>
       </NavbarContent>
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
+      <NavbarContent className="flex gap-1 md:gap-4" justify="center">
         <NavbarItem>
           <NavBarDropdown
             items={[

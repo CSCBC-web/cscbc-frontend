@@ -24,7 +24,7 @@ export default function SermonCard({
 }: SermonCardProps) {
   return (
     <Link href={`/${locale}/sermons/detail/${id}`}>
-      <Card className="py-4 w-80" fullWidth={false}>
+      <Card className="py-4 w-96" fullWidth={false}>
         <CardBody className="overflow-visible py-2">
           <figure className="w-full max-h-60 relative aspect-[16/9]">
             <NextImage
