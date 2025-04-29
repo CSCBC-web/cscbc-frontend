@@ -71,7 +71,7 @@ export default function LanguageSwitcher() {
                         color={item.key === "delete" ? "danger" : "default"}
                         onClick={() => handleLanguageChange(item.key)}
                     >
-                        <span className="hidden sm:inline">
+                        <span>
                             {item.key === currentLocale ? "✓" : ""}
                             {item.label}
                         </span>

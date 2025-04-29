@@ -6,10 +6,13 @@ import {
 import { Link } from "@heroui/link";
 import Image from "next/image";
 import { Button } from "@heroui/button";
+import {Popover, PopoverTrigger, PopoverContent} from "@heroui/popover";
 import { useTranslations } from "next-intl";
 
 import LanguageSwitcher from "@/components/LayoutWidgewts/languageSwitcher";
 import NavBarDropdown from "@/components/LayoutWidgewts/navBarDropdown";
+import { MenuIcon } from "../icons";
+
 
 export const AcmeLogo = () => {
   return (
@@ -38,7 +41,7 @@ export const Navbar = () => {
           />
         </Link>
       </NavbarContent>
-      <NavbarContent className="flex gap-1 md:gap-4" justify="center">
+      <NavbarContent className="hidden md:flex gap-0 md:gap-2" justify="center">
         <NavbarItem>
           <NavBarDropdown
             items={[
@@ -68,8 +71,8 @@ export const Navbar = () => {
               size="lg"
               variant="light"
             >
-              <span className="hidden sm:inline font-medium">
-                {t("navbar_text_events")}
+              <span className="font-medium">
+              {t("navbar_text_events")}
               </span>
             </Button>
           </Link>
@@ -81,7 +84,7 @@ export const Navbar = () => {
               size="lg"
               variant="light"
             >
-              <span className="hidden sm:inline font-medium">
+              <span className="font-medium">
                 {t("navbar_text_sermons")}
               </span>
             </Button>
@@ -126,7 +129,7 @@ export const Navbar = () => {
               size="lg"
               variant="light"
             >
-              <span className="hidden sm:inline font-medium">
+              <span className="font-medium">
                 {t("navbar_text_giving")}
               </span>
             </Button>
@@ -160,6 +163,28 @@ export const Navbar = () => {
           />
         </NavbarItem>
       </NavbarContent>
+      <NavbarContent className="flex md:hidden" justify="center">
+        {/* 这里用一个dropdown 用户端组件适配移动端 */}
+        <Popover placement="bottom" showArrow={true}>
+          <PopoverTrigger>
+            <Button variant="light">
+              <MenuIcon />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <div className="px-1 py-2">
+              <div className="text-small font-bold">Reminder</div>
+              <div className="text-tiny">Mobile layout adaptation in progress</div>
+              <div className="text-tiny">Please use it on your desktop</div>
+            </div>
+          </PopoverContent>
+        </Popover>
+          
+          
+        
+        
+      </NavbarContent>
+
       <NavbarContent justify="end">
         <LanguageSwitcher />
       </NavbarContent>
