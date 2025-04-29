@@ -22,7 +22,7 @@ export default async function AboutPage(props: { params: Params }) {
       path = `${process.env.R2_ENDPOINT}/markdown/about_zh.mdx`;
       break;
     case "zh-Hant":
-      path = `${process.env.R2_ENDPOINT}/markdown/about_zh-Hant.mdx`;
+      path = `${process.env.R2_ENDPOINT}/markdown/about_zhHant.mdx`;
       break;
     default:
       path = `${process.env.R2_ENDPOINT}/markdown/about_en.mdx`; // default 'en'
