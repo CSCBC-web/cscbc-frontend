@@ -57,7 +57,7 @@ export default function Footer() {
                 <GoogleMapsEmbed
                   apiKey={`${process.env.GOOGLE_MAPS_API_KEY}`}
                   height="250"
-                  width="400"
+                  //width="400"
                   mode="place"
                   q="College+Statio+Chinese+Bible+Church,College+Station,TX"
                 />

@@ -6,28 +6,44 @@ import {
 import { Link } from "@heroui/link";
 import Image from "next/image";
 import { Button } from "@heroui/button";
-import {Popover, PopoverTrigger, PopoverContent} from "@heroui/popover";
 import { useTranslations } from "next-intl";
 
 import LanguageSwitcher from "@/components/LayoutWidgewts/languageSwitcher";
 import NavBarDropdown from "@/components/LayoutWidgewts/navBarDropdown";
-import { MenuIcon } from "../icons";
+
+import NavDropdown from "./navDropdown";
 
 
-export const AcmeLogo = () => {
-  return (
-    <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
-      <path
-        clipRule="evenodd"
-        d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-        fill="currentColor"
-        fillRule="evenodd"
-      />
-    </svg>
-  );
-};
 export const Navbar = () => {
   const t = useTranslations("Header");
+
+  const items = [
+      {
+        key: "about",
+        label: t("about_menu_text_about_us"),
+        link: "/about",
+      },
+      {
+        key: "newComer",
+        label: t("about_menu_text_new_to_cscbc"),
+        link: "/about/newComer",
+      },
+      {
+        key: "events",
+        label: t("navbar_text_events"),
+        link: "/events",
+      },
+      {
+        key: "sermons",
+        label: t("navbar_text_sermons"),
+        link: "/sermons",
+      },
+      {
+        key: "ministries",
+        label: t("navbar_text_ministries"),
+        link: "/ministries",
+      },
+    ]
 
   return (
     <HeroUINavbar isBordered maxWidth="2xl">
@@ -164,25 +180,7 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent className="flex md:hidden" justify="center">
-        {/* 这里用一个dropdown 用户端组件适配移动端 */}
-        <Popover placement="bottom" showArrow={true}>
-          <PopoverTrigger>
-            <Button variant="light">
-              <MenuIcon />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <div className="px-1 py-2">
-              <div className="text-small font-bold">Reminder</div>
-              <div className="text-tiny">Mobile layout adaptation in progress</div>
-              <div className="text-tiny">Please use it on your desktop</div>
-            </div>
-          </PopoverContent>
-        </Popover>
-          
-          
-        
-        
+        <NavDropdown items={items}/>
       </NavbarContent>
 
       <NavbarContent justify="end">
