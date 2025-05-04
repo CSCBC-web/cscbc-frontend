@@ -60,8 +60,7 @@ export default function EventCard({
               quality={80}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               src={
-                thumbnailUrl ||
-                "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                thumbnailUrl || `${process.env.R2_ENDPOINT}/default_fellowship.jpg`
               }
             />
           </figure>

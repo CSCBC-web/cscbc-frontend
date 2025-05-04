@@ -107,7 +107,18 @@ export const Navbar = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <NavBarDropdown
+          <Link color="foreground" href="/ministries">
+            <Button
+              className="flex items-center gap-2"
+              size="lg"
+              variant="light"
+            >
+              <span className="font-medium">
+                {t("navbar_text_ministries")}
+              </span>
+            </Button>
+          </Link>
+          {/* <NavBarDropdown
             items={[
               {
                 label: `${t("ministries_menu_text_family")}`,
@@ -136,7 +147,7 @@ export const Navbar = () => {
               },
             ]}
             name={t("navbar_text_ministries")}
-          />
+          /> */}
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="/giving">

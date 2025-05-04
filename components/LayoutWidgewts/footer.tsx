@@ -10,10 +10,10 @@ export default function Footer() {
     const t = useTranslations("Footer");
     return (
         <div className='pt-10 pb-10 flex flex-col items-center justify-center'>
-          <footer className='w-full 2xl:w-3/4 flex flex-col items-center justify-center py-6'>
+          <footer className='max-w-6xl 2xl:w-3/4 flex flex-col items-center justify-center py-6'>
 
             <div className="w-full bg-base-100 flex items-center justify-center py-5 px-5 gap-x-4">
-              <div className='hidden lg:flex lg:w-1/5 px-10 flex-col items-center justify-center'>
+              <div className='hidden lg:flex lg:w-3/12 px-10 flex-col items-center justify-center'>
                 <figure className="w-full max-h-40 relative aspect-square">
                 <NextImage
                   fill
@@ -26,8 +26,8 @@ export default function Footer() {
                 />
                 </figure>
               </div>
-              <div className='w-full md:w-2/3 lg:w-3/5 px-4 flex items-centr justify-center gap-x-10'>
-                <div className='self-center w-3/4 flex flex-col justify-center content-center place-items-start space-y-2'>
+              <div className='w-full md:w-2/3 lg:w-6/12 px-4 flex items-centr justify-center gap-x-20'>
+                <div className='flex flex-col justify-center content-center place-items-start space-y-2'>
                   <h3 className='footer-title text-base-content font-medium text-xl'> {t('contact')} </h3>
                   <br/>
                   <p className='text-base-content'>708 Eisenhower Street</p>
@@ -35,7 +35,7 @@ export default function Footer() {
                   <a className='text-base-content' href='tel:9796962317'>979-696-2317</a>
                   <a className='text-base-content' href='mailto:cscbclist@gmail.com'>cscbclist@gmail.com</a>
                 </div>
-                <div className='self-center w-1/4 flex flex-col justify-center content-center place-items-start space-y-2'>
+                <div className='flex flex-col justify-center content-center place-items-start space-y-2'>
                   <h3 className='footer-title text-base-content font-medium text-xl'> {t('resources')} </h3>
                   <br />
                   <Link href={`/sermons`}>
@@ -53,7 +53,7 @@ export default function Footer() {
                 </div>
                   
               </div>
-              <div className='hidden md:w-1/3 px-10 lg:w-1/5 md:flex flex-col items-center justify-center '>
+              <div className='hidden md:w-1/3 px-10 lg:w-3/12 md:flex flex-col items-center justify-center '>
                 <GoogleMapsEmbed
                   apiKey={`${process.env.GOOGLE_MAPS_API_KEY}`}
                   height="250"

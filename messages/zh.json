@@ -25,7 +25,7 @@
         "navbar_text_about": "介绍",
         "navbar_text_events": "活动",
         "navbar_text_sermons": "讲道",
-        "navbar_text_ministries": "组织",
+        "navbar_text_ministries": "团契",
         "navbar_text_giving": "奉献",
         "navbar_text_resources": "资料",
     
@@ -52,7 +52,7 @@
         "resources": "资源",
         "footer_sermons": "讲道",
         "footer_events": "活动",
-        "footer_ministries": "组织",
+        "footer_ministries": "团契",
         "footer_classes": "课程"
     },
 
@@ -98,7 +98,7 @@
         }
     },
     "Ministries": {
-        "title": "所有组织",
+        "title": "所有团契",
         "youth": {
             "title": "儿童青少年团契"
         },
