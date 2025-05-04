@@ -26,7 +26,7 @@
         "navbar_text_about": "介紹",
         "navbar_text_events": "活動",
         "navbar_text_sermons": "講道",
-        "navbar_text_ministries": "組織",
+        "navbar_text_ministries": "團契",
         "navbar_text_giving": "奉獻",
         "navbar_text_resources": "資料",
     
@@ -53,7 +53,7 @@
         "resources": "資源",
         "footer_sermons": "講道",
         "footer_events": "活動",
-        "footer_ministries": "組織",
+        "footer_ministries": "團契",
         "footer_classes": "課程"
     },
 
@@ -99,7 +99,7 @@
         }
     },
     "Ministries": {
-        "title": "所有組織",
+        "title": "所有團契",
         "youth": {
             "title": "兒童青少年團契"
         },

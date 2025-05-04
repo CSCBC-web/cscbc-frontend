@@ -26,7 +26,7 @@
         "navbar_text_about": "About",
         "navbar_text_events": "Events",
         "navbar_text_sermons": "Sermons",
-        "navbar_text_ministries": "Ministries",
+        "navbar_text_ministries": "Fellowships",
         "navbar_text_giving": "Giving",
         "navbar_text_resources": "Resources",
     
@@ -52,7 +52,7 @@
         "resources": "Resources",
         "footer_sermons": "Sermons",
         "footer_events": "Events",
-        "footer_ministries": "Ministries",
+        "footer_ministries": "Fellowships",
         "footer_classes": "Classes"
     },
     "About": {
@@ -96,7 +96,7 @@
         }
     },
     "Ministries": {
-        "title": "All Groups",
+        "title": "All Fellowships",
         "youth": {
             "title": "Children & Youth Ministry"
         },
