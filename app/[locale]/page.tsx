@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import TopHero from "@/components/HomePage/TopHero";
 import FeaturedEvents from "@/components/HomePage/FeaturedEventSection";
 import LatestSermon from "@/components/HomePage/LatestSermon";

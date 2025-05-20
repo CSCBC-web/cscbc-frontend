@@ -1,5 +1,0 @@
-main = ".open-next/worker.js"
-name = "cscbc-frontend"
-compatibility_date = "2025-03-25"
-compatibility_flags = ["nodejs_compat"]
-  

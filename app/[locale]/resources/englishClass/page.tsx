@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import { getTranslations } from "next-intl/server";
 import { MDXRemote } from "next-mdx-remote/rsc";
 

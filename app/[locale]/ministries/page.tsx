@@ -1,5 +1,3 @@
-export const runtime = 'edge';
-
 import { getTranslations } from "next-intl/server";
 
 import { siteConfig } from "@/config/site";
