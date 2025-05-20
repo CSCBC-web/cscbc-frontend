@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import React from "react";
 import { getTranslations } from "next-intl/server";
 import Player from 'next-video/player';

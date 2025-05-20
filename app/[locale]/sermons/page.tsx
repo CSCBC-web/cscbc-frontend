@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { getTranslations } from "next-intl/server";
 import { Link } from "@heroui/link";
 import { Button } from "@heroui/button";
