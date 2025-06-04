@@ -98,7 +98,7 @@ export default async function Sermons(props: {
         <h1 className={title()}>{t("title")}</h1>
       </section>
       <section className="w-full flex gap-10">
-        <div className="w-1/6 px-10 flex flex-col items-center justify-start gap-10">
+        <div className="hidden xl:block w-1/6 px-10 flex-col items-center justify-start gap-10">
           <SermonFilter
             categories={categoryOptions}
             speakers={speakerOptions}
@@ -112,8 +112,8 @@ export default async function Sermons(props: {
             // onSpeakerChange={() => {}}
           />
         </div>
-        <div className="w-5/6 px-10 flex flex-col items-center justify-center gap-10">
-          <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+        <div className="w-full xl:w-5/6 px-10 flex flex-col items-center justify-center gap-10">
+          <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 justify-items-center">
             {sermonList.map((sermon: SermonMetaType, index: number) => (
               <SermonCard
                 key={index}
@@ -129,27 +129,40 @@ export default async function Sermons(props: {
               />
             ))}
           </div>
-          <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
-            <Button isDisabled={Number(searchParams.page) === 1}>
+            <div className="w-full py-5 flex justify-center items-center mt-4 space-x-4">
+            <Button 
+              color="primary"
+              variant="solid"
+              isDisabled={Number(searchParams.page) === 1}>
               <Link
-                href={`/${locale}/sermons?page=${Number(searchParams.page) - 1}`}
+              href={`/${locale}/sermons?${new URLSearchParams({
+                page: String(Number(searchParams.page) - 1),
+                ...(searchParams.categories ? { categories: searchParams.categories } : {}),
+                ...(searchParams.speakers ? { speakers: searchParams.speakers } : {}),
+              }).toString()}`}
               >
-                {t("page_up")}
+                <span className="text-background">{t("page_up")}</span>
               </Link>
             </Button>
             <span className="flex items-center">
               {searchParams.page}/{pageMeta.pageCount} {t("page")}
             </span>
             <Button
+              color="primary"
+              variant="solid"
               isDisabled={Number(searchParams.page) === pageMeta.pageCount}
             >
               <Link
-                href={`/${locale}/sermons/?page=${Number(searchParams.page) + 1}`}
+              href={`/${locale}/sermons?${new URLSearchParams({
+                page: String(Number(searchParams.page) + 1),
+                ...(searchParams.categories ? { categories: searchParams.categories } : {}),
+                ...(searchParams.speakers ? { speakers: searchParams.speakers } : {}),
+              }).toString()}`}
               >
-                {t("page_down")}
+              <span className="text-background">{t("page_down")}</span>
               </Link>
             </Button>
-          </div>
+            </div>
         </div>
       </section>
     </div>

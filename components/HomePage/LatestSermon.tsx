@@ -13,8 +13,8 @@ export default async function LatestSermon({ locale }: { locale: string}) {
   const sermon = sermonList[0];
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="w-full min-h-[100vh] flex text-center justify-center items-center">
-        <div className="w-2/5">
+      <div className="w-full min-h-[50vh] flex flex-col lg:flex-row text-center justify-center items-center gap-y-10 lg:gap-x-10">
+        <div className="w-full lg:w-2/5">
           <h1 className={title()}>{t("recentSermon.title")}</h1>
           <h2 className={subtitle()}>{t("recentSermon.description")}</h2>
           <div className="flex items-center justify-center gap-2">
@@ -38,9 +38,8 @@ export default async function LatestSermon({ locale }: { locale: string}) {
             </Link>
           </div>
         </div>
-        <div className="w-3/5 flex flex-col items-center justify-center gap-4">
-          {/* TODO: 这里的字体要改一下 */}
-          <h1 className={title()}>{t("recentSermon.recentSermonTitle")}</h1>
+        <div className="w-full lg:w-3/5 flex flex-col items-center justify-center gap-4">
+          <h1 className={title({ size: 'sm' })}>{t("recentSermon.recentSermonTitle")}</h1>
           <SermonCard
             locale={locale}
             id={sermon.documentId}

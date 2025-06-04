@@ -9,7 +9,6 @@ import {
   DropdownSection,
   DropdownItem,
 } from "@heroui/dropdown";
-import { Link } from "@heroui/link";
 
 export default function NavBarDropdown({
   name,
@@ -27,16 +26,14 @@ export default function NavBarDropdown({
       <Dropdown>
         <DropdownTrigger>
           <Button className="flex items-center gap-2" size="lg" variant="light">
-            <span className="hidden sm:inline font-medium">{name}</span>
+            <span className="font-medium">{name}</span>
           </Button>
         </DropdownTrigger>
         <DropdownMenu aria-label="Dynamic Actions">
           <DropdownSection>
             {items.map((item) => (
-              <DropdownItem key={item.key}>
-                <Link color="foreground" href={item.link}>
-                  {item.label}
-                </Link>
+              <DropdownItem key={item.key} href={item.link}>
+                {item.label}
               </DropdownItem>
             ))}
           </DropdownSection>

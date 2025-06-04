@@ -138,8 +138,8 @@ export default function SermonFilter({
 
       <div className="flex gap-2">
         <Button
-          color="primary"
-          variant="flat"
+          color="secondary"
+          variant="solid"
           onPress={handleReset}
           // isDisabled={!draftCategories.length && !draftSpeakers.length}
         >
@@ -147,7 +147,7 @@ export default function SermonFilter({
         </Button>
         
         <Button
-          color="secondary"
+          color="primary"
           variant="solid"
           onPress={handleApply}
           // isDisabled={!hasUnsavedChanges}

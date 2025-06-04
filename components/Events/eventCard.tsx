@@ -49,7 +49,7 @@ export default function EventCard({
   };
   return (
     <Link href={`/${locale}/events/detail/${id}`}>
-      <Card className="py-4 w-80" fullWidth={false}>
+      <Card className="py-4 w-96" fullWidth={false}>
         <CardBody className="overflow-visible py-2">
           <figure className="w-full max-h-60 relative aspect-[16/9]">
             <NextImage
@@ -60,8 +60,7 @@ export default function EventCard({
               quality={80}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               src={
-                thumbnailUrl ||
-                "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                thumbnailUrl || `${process.env.R2_ENDPOINT}/default_fellowship.jpg`
               }
             />
           </figure>

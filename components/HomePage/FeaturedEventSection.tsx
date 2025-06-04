@@ -15,8 +15,8 @@ export default async function FeaturedEvents({ locale }: { locale: string }) {
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="w-full min-h-[100vh] flex text-center justify-center items-center">
-        <div className="w-2/5 flex flex-col items-center justify-center gap-4">
+      <div className="w-full min-h-[50vh] flex flex-col lg:flex-row text-center justify-center items-center gap-y-10 lg:gap-x-10">
+        <div className="w-full lg:w-2/5 flex flex-col items-center justify-center gap-4">
           <h1 className={title()}>{t("featuredEvents.title")}</h1>
           <h2 className={subtitle()}>{t("featuredEvents.subtitle")}</h2>
           <p className="text-gray-500">{t("featuredEvents.description")}</p>
@@ -41,9 +41,8 @@ export default async function FeaturedEvents({ locale }: { locale: string }) {
             </Link>
           </div>
         </div>
-        <div className="w-3/5 flex flex-col items-center justify-center gap-4">
-          {/* TODO: 这里的字体要改一下 */}
-          <h1 className={title()}>{t("featuredEvents.featuredEventsTitle")}</h1>
+        <div className="w-full lg:w-3/5 flex flex-col items-center justify-center gap-4">
+          <h1 className={title({ size:'sm' })}>{t("featuredEvents.featuredEventsTitle")}</h1>
           <EventCard
             locale={locale}
             id={event.documentId}

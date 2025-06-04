@@ -11,24 +11,43 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LayoutWidgewts/languageSwitcher";
 import NavBarDropdown from "@/components/LayoutWidgewts/navBarDropdown";
 
-export const AcmeLogo = () => {
-  return (
-    <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
-      <path
-        clipRule="evenodd"
-        d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
-        fill="currentColor"
-        fillRule="evenodd"
-      />
-    </svg>
-  );
-};
+import NavDropdown from "./navDropdown";
+
+
 export const Navbar = () => {
   const t = useTranslations("Header");
 
+  const items = [
+      {
+        key: "about",
+        label: t("about_menu_text_about_us"),
+        link: "/about",
+      },
+      {
+        key: "newComer",
+        label: t("about_menu_text_new_to_cscbc"),
+        link: "/about/newComer",
+      },
+      {
+        key: "events",
+        label: t("navbar_text_events"),
+        link: "/events",
+      },
+      {
+        key: "sermons",
+        label: t("navbar_text_sermons"),
+        link: "/sermons",
+      },
+      {
+        key: "ministries",
+        label: t("navbar_text_ministries"),
+        link: "/ministries",
+      },
+    ]
+
   return (
     <HeroUINavbar isBordered maxWidth="2xl">
-      <NavbarContent justify="start">
+      <NavbarContent className="hidden md:flex gap-4" justify="start">
         <Link href="/">
           <Image
             alt="Logo"
@@ -38,7 +57,7 @@ export const Navbar = () => {
           />
         </Link>
       </NavbarContent>
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
+      <NavbarContent className="hidden md:flex gap-0 md:gap-2" justify="center">
         <NavbarItem>
           <NavBarDropdown
             items={[
@@ -68,8 +87,8 @@ export const Navbar = () => {
               size="lg"
               variant="light"
             >
-              <span className="hidden sm:inline font-medium">
-                {t("navbar_text_events")}
+              <span className="font-medium">
+              {t("navbar_text_events")}
               </span>
             </Button>
           </Link>
@@ -81,14 +100,25 @@ export const Navbar = () => {
               size="lg"
               variant="light"
             >
-              <span className="hidden sm:inline font-medium">
+              <span className="font-medium">
                 {t("navbar_text_sermons")}
               </span>
             </Button>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <NavBarDropdown
+          <Link color="foreground" href="/ministries">
+            <Button
+              className="flex items-center gap-2"
+              size="lg"
+              variant="light"
+            >
+              <span className="font-medium">
+                {t("navbar_text_ministries")}
+              </span>
+            </Button>
+          </Link>
+          {/* <NavBarDropdown
             items={[
               {
                 label: `${t("ministries_menu_text_family")}`,
@@ -117,7 +147,7 @@ export const Navbar = () => {
               },
             ]}
             name={t("navbar_text_ministries")}
-          />
+          /> */}
         </NavbarItem>
         <NavbarItem>
           <Link color="foreground" href="/giving">
@@ -126,7 +156,7 @@ export const Navbar = () => {
               size="lg"
               variant="light"
             >
-              <span className="hidden sm:inline font-medium">
+              <span className="font-medium">
                 {t("navbar_text_giving")}
               </span>
             </Button>
@@ -160,6 +190,10 @@ export const Navbar = () => {
           />
         </NavbarItem>
       </NavbarContent>
+      <NavbarContent className="flex md:hidden" justify="center">
+        <NavDropdown items={items}/>
+      </NavbarContent>
+
       <NavbarContent justify="end">
         <LanguageSwitcher />
       </NavbarContent>
