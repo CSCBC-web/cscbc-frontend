@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches: [ dev ]
-  pull_request:
-    branches: [ dev ]
 
 jobs:
   build:
@@ -18,15 +16,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'pnpm'
       
-      - name: Install pnpm globally
-        run: npm install -g pnpm
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
         with:
-          version: 10
+          version: 10.8.0
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install
